@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.phonegap.dch" version="1.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Catalogo de Servicios</name>
+    <description>
+        Aplicacion - Proyecto Final
+    </description>
+    <author email="support@david.com">
+       David Cedano
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+
+    <icon src="img/servicios1.jpg" gap:density="ldpi" gap:platform="android" />
+	<icon src="img/servicios2.jpg" gap:density="mdpi" gap:platform="android" />
+	<icon src="img/servicios3.jpg" gap:density="hdpi" gap:platform="android" />
+	<icon src="img/servicios4.jpg" gap:density="xhdpi" gap:platform="android" />
+
+</widget>
