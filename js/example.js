@@ -1,4 +1,4 @@
-$('#btn_cancelar').click(function(e){
+$('#btn_cancelar').click(function(){
 		navigator.notification.alert(
 	    'You are the winner!',  // message
 	    alertDismissed,         // callback
