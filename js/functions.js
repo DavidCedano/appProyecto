@@ -12,7 +12,14 @@ function mkLog(text){
 	//$("#log").append(txt  + "<br>");
 }
 
-
+$('#btn_cancelar').click(function(e){
+		navigator.notification.alert(
+	    'You are the winner!',  // message
+	    alertDismissed,         // callback
+	    'Game Over',            // title
+	    'Done'                  // buttonName
+		);
+	});
 
 /* 
 * variables de la aplicación
@@ -34,12 +41,7 @@ function onDeviceReady(){
 	//alert('Aplicación cargada y lista');
     //navigator.notification.alert('PhoneGap is working','','','');
 
-    navigator.notification.alert(
-    'You are the winner!',  // message
-    alertDismissed,         // callback
-    'Game Over',            // title
-    'Done'                  // buttonName
-);
+    
 	
 	existe_db = window.localStorage.getItem("existe_db");
 	db = window.openDatabase("servicios", "1.0", "Catalogo de servicios", 200000);
@@ -51,7 +53,6 @@ function onDeviceReady(){
 		alert('CARGAR LA BASE DE DATOS');
 		cargaDatos();
 	}
-	
 	
 	$('#btn_guardar').click(function(e){
 		if($.id != -1){
