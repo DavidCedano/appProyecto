@@ -31,8 +31,15 @@ function onBodyLoad() {
 
 function onDeviceReady(){
 	mkLog("Aplicación cargada y lista");
-	alert('Aplicación cargada y lista');
-    navigator.notification.alert("PhoneGap is working");
+	//alert('Aplicación cargada y lista');
+    //navigator.notification.alert('PhoneGap is working','','','');
+
+    navigator.notification.alert(
+    'You are the winner!',  // message
+    alertDismissed,         // callback
+    'Game Over',            // title
+    'Done'                  // buttonName
+);
 	
 	existe_db = window.localStorage.getItem("existe_db");
 	db = window.openDatabase("servicios", "1.0", "Catalogo de servicios", 200000);
