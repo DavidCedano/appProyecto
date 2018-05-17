@@ -1,3 +1,5 @@
+$(document).ready(function() {
+
 $('#btn_cancelar').click(function(){
 		navigator.notification.alert(
 	    'You are the winner!',  // message
@@ -6,3 +8,4 @@ $('#btn_cancelar').click(function(){
 	    'Done'                  // buttonName
 		);
 	});
+});
