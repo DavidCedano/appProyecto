@@ -32,7 +32,7 @@ function onBodyLoad() {
 function onDeviceReady(){
 	mkLog("Aplicación cargada y lista");
 	alert('Aplicación cargada y lista');
-    //navigator.notification.alert("PhoneGap is working");
+    navigator.notification.alert("PhoneGap is working");
 	
 	existe_db = window.localStorage.getItem("existe_db");
 	db = window.openDatabase("servicios", "1.0", "Catalogo de servicios", 200000);
@@ -46,7 +46,7 @@ function onDeviceReady(){
 	}
 	
 	
-	$("#btn_guardar").click(function(e){
+	$('#btn_guardar').click(function(e){
 		if($.id != -1){
 			alert('SAVE EDIT FORM');
 		 	saveEditForm();

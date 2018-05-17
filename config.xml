@@ -15,4 +15,6 @@
 	<icon src="img/servicios3.jpg" gap:density="hdpi" gap:platform="android" />
 	<icon src="img/servicios4.jpg" gap:density="xhdpi" gap:platform="android" />
 
+    <plugin name="cordova-plugin-dialogs" spec="~2.0.1" />
+
 </widget>
