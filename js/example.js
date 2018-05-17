@@ -1,11 +1,17 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
 
 $('#btn_cancelar').click(function(){
-		navigator.notification.alert(
+		/*navigator.notification.alert(
 	    'You are the winner!',  // message
 	    alertDismissed,         // callback
 	    'Game Over',            // title
 	    'Done'                  // buttonName
 		);
-	});
-});
+	});*/
+
+	//alert('ESTOY AQUI');
+//});
+
+function alertDismissed() {
+    alert('ESTOY AQUI');
+}
