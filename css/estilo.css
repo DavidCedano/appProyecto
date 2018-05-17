@@ -1,0 +1,9 @@
+.titulo{
+	font-weight: bold;
+	color: #000000; 
+}
+
+.alin{
+	vertical-align: baseline;
+	border-radius: 15px;
+}
