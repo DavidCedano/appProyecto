@@ -12,14 +12,6 @@ function mkLog(text){
 	//$("#log").append(txt  + "<br>");
 }
 
-$('#btn_cancelar').click(function(e){
-		navigator.notification.alert(
-	    'You are the winner!',  // message
-	    alertDismissed,         // callback
-	    'Game Over',            // title
-	    'Done'                  // buttonName
-		);
-	});
 
 /* 
 * variables de la aplicación
