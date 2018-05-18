@@ -26,11 +26,11 @@ function mkLog(text){
 */
 function onBodyLoad() {    
 	document.addEventListener("deviceready", onDeviceReady(), false);
-	alert('LLEGUE AL ONBODYLOAD()');
+	//alert('LLEGUE AL ONBODYLOAD()');
 }
 
 function onDeviceReady(){
-	alert('LLEGUE AL onDeviceReady()');
+	//alert('LLEGUE AL onDeviceReady()');
 	mkLog("Aplicación cargada y lista");
 	//alert('Aplicación cargada y lista');
     //navigator.notification.alert('PhoneGap is working','','','');
@@ -38,6 +38,7 @@ function onDeviceReady(){
     
 	
 	existe_db = window.localStorage.getItem("existe_db");
+	alert(existe_db);
 	db = window.openDatabase("servicios", "1.0", "Catalogo de servicios", 200000);
 	if(existe_db == null){
 		alert('CREAR BASE DE DATOS');
@@ -63,7 +64,7 @@ function onDeviceReady(){
 * creación de la base de datos
 */
 function creaDB(){
-	db.transaction(creaNuevaDB, errorDB, creaSuccess);
+	db.transaction(creaNuevaDB(tx), errorDB(err), creaSuccess());
 	
 }
 
@@ -82,9 +83,9 @@ function creaNuevaDB(tx){
 		"categoria VARCHAR(30), " +  
 		"nota VARCHAR(50) )";
 		
-	tx.executeSql(sql);
+	//tx.executeSql(sql);
 	
-	tx.executeSql("INSERT INTO servicios (id,nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES (1,'Ejemplo1','imagen1','6699900970','ejemplo@mail.com','granadas','lista_adiestramiento','soy el mejor yeah')");
+	//tx.executeSql("INSERT INTO servicios (id,nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES (1,'Ejemplo1','imagen1','6699900970','ejemplo@mail.com','granadas','lista_adiestramiento','soy el mejor yeah')");
 }
 
 function creaSuccess(){
