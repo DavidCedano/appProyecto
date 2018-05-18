@@ -25,7 +25,7 @@ function mkLog(text){
 * carga inicial de la app
 */
 function onBodyLoad() {    
-	document.addEventListener("deviceready", onDeviceReady, false);
+	document.addEventListener("deviceready", onDeviceReady(), false);
 	alert('LLEGUE AL ONBODYLOAD()');
 }
 
@@ -40,7 +40,7 @@ function onDeviceReady(){
 	existe_db = window.localStorage.getItem("existe_db");
 	db = window.openDatabase("servicios", "1.0", "Catalogo de servicios", 200000);
 	if(existe_db == null){
-		navigator.notification.alert("CREAR base de datos");
+		alert('CREAR BASE DE DATOS');
 		creaDB();
 		
 	}else{
