@@ -64,12 +64,13 @@ function onDeviceReady(){
 * creación de la base de datos
 */
 function creaDB(){
-	db.transaction(creaNuevaDB(tx), errorDB(err), creaSuccess());
+	db.transaction(creaNuevaDB, errorDB, creaSuccess());
 	
 }
 
 function creaNuevaDB(tx){
 	mkLog("Creando base de datos");
+	alert('Creando base de datos');
 	
 	tx.executeSql('DROP TABLE IF EXISTS servicios');
 	
@@ -83,9 +84,11 @@ function creaNuevaDB(tx){
 		"categoria VARCHAR(30), " +  
 		"nota VARCHAR(50) )";
 		
-	//tx.executeSql(sql);
+	tx.executeSql(sql);
 	
-	//tx.executeSql("INSERT INTO servicios (id,nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES (1,'Ejemplo1','imagen1','6699900970','ejemplo@mail.com','granadas','lista_adiestramiento','soy el mejor yeah')");
+	tx.executeSql("INSERT INTO servicios (id,nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES (1,'Ejemplo1','imagen1','6699900970','ejemplo@mail.com','granadas','lista_adiestramiento','soy el mejor yeah')");
+
+	alert('YA INSERTE');
 }
 
 function creaSuccess(){
@@ -96,6 +99,8 @@ function creaSuccess(){
 function errorDB(err){
 	mkLog("Error procesando SQL " + err.code);
 	navigator.notification.alert("Error procesando SQL " + err.code);
+	alert('Error procesando SQL');
+
 }
 
 /*
@@ -113,6 +118,7 @@ function queryDBInsertForm(tx){
 	var cat = $("#lista_categoria").find("input:selected").val();
 	
 	tx.executeSql("INSERT INTO servicios (nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES ('"+$("#nombre").val()+"','"+$("#imagen").val()+"','"+$("#telefono").val()+"','"+$("#email").val()+"','"+$("#domicilio").val()+"','"+cat+"','"+$("#nota").val()+"')", [], newFormSuccess, errorDB);
+	lert('INSERTE DE NUEVO');
 }
 function newFormSuccess(tx, results) {
 	var cat = $("#lista_categoria").find("input:selected").val();
