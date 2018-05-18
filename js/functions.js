@@ -84,22 +84,26 @@ function creaNuevaDB(tx){
 		"categoria VARCHAR(30), " +  
 		"nota VARCHAR(50) )";
 		
+	alert('Se creo la base de datos');
+
 	tx.executeSql(sql);
 	
-	tx.executeSql("INSERT INTO servicios (id,nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES (1,'Ejemplo1','imagen1','6699900970','ejemplo@mail.com','granadas','lista_adiestramiento','soy el mejor yeah')");
+	tx.executeSql("INSERT INTO servicios (nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES ('Ejemplo1','imagen1','6699900970','ejemplo@mail.com','granadas','lista_administrador','soy el mejor yeah')");
 
 	alert('YA INSERTE');
 }
 
 function creaSuccess(){
 	window.localStorage.setItem("existe_db", 1);
+	alert('VOY A CARGAR datos: ');
 	cargaDatos();
 }
 
 function errorDB(err){
 	mkLog("Error procesando SQL " + err.code);
-	navigator.notification.alert("Error procesando SQL " + err.code);
-	alert('Error procesando SQL');
+	alert('Error procesando SQL: ' + err.code);
+	//navigator.notification.alert("Error procesando SQL " + err.code);
+	//alert('Error procesando SQL');
 
 }
 
@@ -145,6 +149,8 @@ function newFormSuccess(tx, results) {
 */
 function cargaDatos(){
 	db.transaction(cargaRegistros, errorDB);
+	alert('ya carge datos');
+	
 }
 
 function cargaRegistros(tx){
