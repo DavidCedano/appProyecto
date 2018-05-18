@@ -25,7 +25,8 @@ function mkLog(text){
 * carga inicial de la app
 */
 function onBodyLoad() {    
-	document.addEventListener("deviceready", onDeviceReady, false);
+	//document.addEventListener("deviceready", onDeviceReady, false);
+	alert('LLEGUE AL ONBODYLOAD()');
 }
 
 function onDeviceReady(){
