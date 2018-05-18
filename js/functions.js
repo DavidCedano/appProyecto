@@ -25,11 +25,12 @@ function mkLog(text){
 * carga inicial de la app
 */
 function onBodyLoad() {    
-	//document.addEventListener("deviceready", onDeviceReady, false);
+	document.addEventListener("deviceready", onDeviceReady, false);
 	alert('LLEGUE AL ONBODYLOAD()');
 }
 
 function onDeviceReady(){
+	alert('LLEGUE AL onDeviceReady()');
 	mkLog("Aplicación cargada y lista");
 	//alert('Aplicación cargada y lista');
     //navigator.notification.alert('PhoneGap is working','','','');
