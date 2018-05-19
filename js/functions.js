@@ -225,7 +225,7 @@ function queryFormSuccess(tx, results) {
 			$.imageURL = "assets/no_foto.png";
 		}
 		$("#imagen").attr("src", $.imageURL);
-		$("#nombre").val($.registro.nombre);
+		$("#ti_nombre").val($.registro.nombre);
 		$("#telefono").val($.registro.telefono);
 		$("#email").val($.registro.email);
 		$("#domicilio").val($.registro.domicilio);
