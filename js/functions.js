@@ -286,7 +286,7 @@ function updateFormSuccess(tx) {
 */
 function saveNewForm(){
 	if(db != null){
-		db.transaction(queryDBInsertForm, errorDB);
+		db.transaction(queryDBInsertForm(), errorDB);
 	}
 }
 
