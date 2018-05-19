@@ -224,16 +224,16 @@ function queryFormSuccess(tx, results) {
 		if($.imageURL == ""){
 			$.imageURL = "assets/no_foto.png";
 		}
-		$("#imagen").attr("src", $.imageURL);
-		$("#ti_nombre").val($.registro.nombre);
-		$("#telefono").val($.registro.telefono);
-		$("#email").val($.registro.email);
-		$("#domicilio").val($.registro.domicilio);
+		$("#alta_imagen").attr("src", $.imageURL);
+		$("#alta_nombre").val($.registro.nombre);
+		$("#alta_telefono").val($.registro.telefono);
+		$("#alta_email").val($.registro.email);
+		$("#alta_domicilio").val($.registro.domicilio);
 		
 		
 		$("#cat_"+$.registro.categoria).trigger("click").trigger("click");//trigger("click").trigger("click");
 			//$("#cat_"+$.registro.categoria).attr("checked",true).checkboxradio("refresh");
-		$("#nota").val($.registro.nota);
+		$("#alta_nota").val($.registro.nota);
 }
 $(document).on('pagebeforeshow', '#inicio', function(){ 
 	$.id = -1;
@@ -241,14 +241,15 @@ $(document).on('pagebeforeshow', '#inicio', function(){
 function initForm(){
 	$.imageURL = "assets/no_foto.png";
 	
-	$("#imagen").attr("src", $.imageURL);
-	$("#nombre").val("");
-	$("#telefono").val("");
-	$("#email").val("");
-	$("#domicilio").val("");
-	$("#nota").val("");
+	$("#alta_imagen").attr("src", $.imageURL);
+	$("#alta_nombre").val("");
+	$("#alta_telefono").val("");
+	$("#alta_email").val("");
+	$("#alta_domicilio").val("");
+	$("#alta_nota").val("");
 		
-	$("#cat_carpinteria").trigger("click").trigger("click")
+	$("#cat_carpinteria").trigger("click").trigger("click");
+	$("#alta_nota").val("");
 }
 
 
