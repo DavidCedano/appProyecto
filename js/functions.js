@@ -277,7 +277,7 @@ function saveNewForm(){
 function queryDBInsertForm(tx){
 	var cat = $("#lista_categoria").find("input:selected").val();
 	
-	tx.executeSql("INSERT INTO servicios (nombre,imagen,telefono,email,domiclio,categoria,nota) VALUES ('"+$("#nombre").val()+"','"+.imageURL+"','"+$("#telefono").val()+"','"+$("#email").val()+"','"+$("#domicilio").val()+"','"+cat+"','"+$("#nota").val()+"')", [], newFormSuccess, errorDB);
+	tx.executeSql("INSERT INTO servicios (nombre,imagen,telefono,email,domiclio,categoria,nota) VALUES ('"+$("#nombre").val()+"','"+$.imageURL+"','"+$("#telefono").val()+"','"+$("#email").val()+"','"+$("#domicilio").val()+"','"+cat+"','"+$("#nota").val()+"')", [], newFormSuccess, errorDB);
 }
 function newFormSuccess(tx, results) {
 	var cat = $("#lista_categoria").find("input:selected").val();
