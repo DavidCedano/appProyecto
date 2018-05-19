@@ -27,25 +27,31 @@ function mkLog(text){
 */
 function onBodyLoad() {    
 	document.addEventListener("deviceready", onDeviceReady, false);
+	alert('estoy en onBodyLoad');
 }
 
 function onDeviceReady(){
 	mkLog("Aplicación cargada y lista");
+	alert('Aplicación cargada y lista');
     //navigator.notification.alert("PhoneGap is working");
 	
 	existe_db = window.localStorage.getItem("existe_db");
 	db = window.openDatabase("servicios", "1.0", "DB del curso Phonegap", 200000);
 	if(existe_db == null){
+		alert('voy al metodo creaDB');
 		creaDB();
 	}else{
+		alert('voy al metodo cargaDatos');
 		cargaDatos();
 	}
 	
 	
 	$("#btn_guardar").click(function(e){
 		if($.id != -1){
+			alert('voy al metodo saveEditForm');
 		 	saveEditForm();
 		 }else{
+		 	alert('voy al metodo saveNewForm');
 			saveNewForm();
 		 }
 	 });
@@ -62,6 +68,7 @@ function creaDB(){
 
 function creaNuevaDB(tx){
 	mkLog("Creando base de datos");
+	alert('creando base de datos');
 	
 	tx.executeSql('DROP TABLE IF EXISTS servicios');
 	
@@ -78,6 +85,8 @@ function creaNuevaDB(tx){
 	tx.executeSql(sql);
 	
 	tx.executeSql("INSERT INTO servicios (id,nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES (1,'Ejemplo1','','+6699900970','ejemplo@mail.com','granadas 258','carpinteria','soy el mejor yeah!')");
+
+	alert('inserte el predeterminado');
 }
 
 
@@ -102,6 +111,7 @@ function cargaDatos(){
 
 function cargaRegistros(tx){
 	mkLog("Cargando registros de la base de datos");
+	alert('cargando registros de la base de datos');
 	tx.executeSql('SELECT * FROM servicios', [], cargaDatosSuccess, errorDB);
 }
 
