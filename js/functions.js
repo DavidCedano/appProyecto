@@ -117,7 +117,7 @@ function cargaDatosSuccess(tx, results){
 	for(var i=0; i<results.rows.length; i++){
 		var persona = results.rows.item(i);
 		var selector = $("#lista_" + persona.categoria + " ul");
-		var foto = persona.foto;
+		var foto = persona.imagen;
 		if(foto == ""){
 			foto = "assets/no_foto.png";
 		}
@@ -150,6 +150,7 @@ $(document).on("pagebeforeshow", "#detalle", function(){
 
 function queryDBFindByID(tx) {
     tx.executeSql('SELECT * FROM servicios WHERE id='+$.id, [], queryDetalleSuccess, errorDB);
+    alert("pase la consulta");
 }
 
 function queryDetalleSuccess(tx, results) {
