@@ -217,21 +217,23 @@ function queryFormSuccess(tx, results) {
 		navigator.notification.alert("No hay detalles para ese elemento");
 		alert("No hay detalles para ese elemento");
 	}
-	
+	alert("voy a cargar los datos para editar");
 	$.registro = results.rows.item(0);
 	
 		$.imageURL = $.registro.imagen;
 		if($.imageURL == ""){
 			$.imageURL = "assets/no_foto.png";
 		}
-		$("#imagen").attr("src", $.imageURL);
+		//$("#imagen").attr("src", $.imageURL);
 		$("#nombre").val($.registro.nombre);
 		$("#telefono").val($.registro.telefono);
 		$("#email").val($.registro.email);
 		$("#domicilio").val($.registro.domicilio);
-		$("#nota").val($.registro.nota);
 		
-		$("#cat_"+$.registro.categoria).trigger("click").trigger("click");	//$("#cat_"+$.registro.categoria).attr("checked",true).checkboxradio("refresh");
+		
+		$("#cat_"+$.registro.categoria).trigger("selected").trigger("selected");//trigger("click").trigger("click");
+			//$("#cat_"+$.registro.categoria).attr("checked",true).checkboxradio("refresh");
+		$("#nota").val($.registro.nota);
 }
 $(document).on('pagebeforeshow', '#inicio', function(){ 
 	$.id = -1;
