@@ -231,7 +231,7 @@ function queryFormSuccess(tx, results) {
 		$("#alta_domicilio").val($.registro.domicilio);
 		
 		
-		$("#opciones").option("#cat_"+$.registro.categoria).selected;//trigger("click").trigger("click");
+		$("#opciones").val($.registro.categoria);//trigger("click").trigger("click");
 			//$("#cat_"+$.registro.categoria).attr("checked",true).checkboxradio("refresh");
 		$("#alta_nota").val($.registro.nota);
 }
