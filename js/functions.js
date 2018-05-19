@@ -84,7 +84,7 @@ function creaNuevaDB(tx){
 		
 	tx.executeSql(sql);
 	
-	tx.executeSql("INSERT INTO servicios (id,nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES (1,'Ejemplo1','','+6699900970','ejemplo@mail.com','granadas 258','carpinteria','soy el mejor yeah!')");
+	tx.executeSql("INSERT INTO servicios (id,nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES (1,'Ejemplo1','','6699900970','ejemplo@mail.com','granadas 258','carpinteria','soy el mejor yeah!')");
 
 	alert('inserte el predeterminado');
 }
@@ -231,7 +231,7 @@ function queryFormSuccess(tx, results) {
 		$("#domicilio").val($.registro.domicilio);
 		
 		
-		$("#cat_"+$.registro.categoria).trigger("selected").trigger("selected");//trigger("click").trigger("click");
+		$("#cat_"+$.registro.categoria).trigger("click").trigger("click");//trigger("click").trigger("click");
 			//$("#cat_"+$.registro.categoria).attr("checked",true).checkboxradio("refresh");
 		$("#nota").val($.registro.nota);
 }
@@ -241,7 +241,7 @@ $(document).on('pagebeforeshow', '#inicio', function(){
 function initForm(){
 	$.imageURL = "assets/no_foto.png";
 	
-	$("#imagen").attr("src", $.imageURL);
+	//$("#imagen").attr("src", $.imageURL);
 	$("#nombre").val("");
 	$("#telefono").val("");
 	$("#email").val("");
