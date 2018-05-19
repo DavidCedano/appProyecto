@@ -231,7 +231,7 @@ function queryFormSuccess(tx, results) {
 		$("#alta_domicilio").val($.registro.domicilio);
 		
 		
-		$("#cat_"+$.registro.categoria).trigger("click").trigger("click");//trigger("click").trigger("click");
+		$("#cat_"+$.registro.categoria).val($.registro.categoria);//trigger("click").trigger("click");
 			//$("#cat_"+$.registro.categoria).attr("checked",true).checkboxradio("refresh");
 		$("#alta_nota").val($.registro.nota);
 }
@@ -263,7 +263,7 @@ function saveEditForm(){
 }
 
 function queryDBUpdateForm(tx){
-	var cat = $("#lista_categoria").find("input:selected").val();
+	var cat = $("#lista_categoria").find("option:selected").val();
 	tx.executeSql('UPDATE servicios SET nombre="'+$("#ti_nombre").val()+'", apellidos="'+$("#ti_apellidos").val()+'",telefono="'+$("#ti_telefono").val()+'",email="'+$("#ti_mail").val()+'",categoria="'+cat+'",foto = "'+$.imageURL+'" WHERE id='+$.id);
 }
 function updateFormSuccess(tx) {
@@ -276,7 +276,7 @@ function updateFormSuccess(tx) {
 	
 	$("#li_"+$.id).remove();
 	
-	var cat = $("#lista_categoria").find("input:selected").val();
+	var cat = $("#lista_categoria").find("option:selected").val();
 	var lista = $("#lista_" + cat + " ul")
 	lista.append(selector).listview('refresh');
 	
