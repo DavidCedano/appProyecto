@@ -193,7 +193,8 @@ function queryDetalleSuccess(tx, results) {
 */
 //vista de la página de edición
 $(document).on('pagebeforeshow', '#AgregarServicio', function(){ 
-	mkLog('ID recuperado en vista form: ' + $.id);
+	mkLog('ID recuperado en vista AgregarServicio: ' + $.id);
+	alert('ID recuperado en vista AgregarServicio: ' + $.id);
 	
 	initForm();
 	if(db != null && $.id != -1){
@@ -203,13 +204,16 @@ $(document).on('pagebeforeshow', '#AgregarServicio', function(){
 
 function queryDBFindByIDForm(tx) {
     tx.executeSql('SELECT * FROM servicios WHERE id='+$.id, [], queryFormSuccess, errorDB);
+    alert('estoy en la 2da consulta');
 }
 
 function queryFormSuccess(tx, results) {
 	mkLog("Recibidos de la DB en vista Form" + results.rows.length + " registros");
+	alert("Recibidos de la DB en vista Form" + results.rows.length + " registros");
 	if(results.rows.length == 0){
 		mkLog("No se han recibido registros para la vista form");
 		navigator.notification.alert("No hay detalles para ese elemento");
+		alert("No hay detalles para ese elemento");
 	}
 	
 	$.registro = results.rows.item(0);
