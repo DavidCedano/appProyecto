@@ -77,7 +77,7 @@ function creaNuevaDB(tx){
 		
 	tx.executeSql(sql);
 	
-	tx.executeSql("INSERT INTO servicios (id,nombre,imagen,telefono,email,domiclio,categoria,nota) VALUES (1,'Ejemplo1','','+6699900970','ejemplo@mail.com','granadas 258','Carpíntero','soy el mejor yeah!')");
+	tx.executeSql("INSERT INTO servicios (id,nombre,imagen,telefono,email,domiclio,categoria,nota) VALUES (1,'Ejemplo1','','+6699900970','ejemplo@mail.com','granadas 258','carpinteria','soy el mejor yeah!')");
 }
 
 
@@ -107,11 +107,13 @@ function cargaRegistros(tx){
 
 function cargaDatosSuccess(tx, results){
 	mkLog("Recibidos de la DB " + results.rows.length + " registros");
+	alert("Recibidos de la DB " + results.rows.length + " registros");
 	if(results.rows.length == 0){
 		mkLog("No se han recibido registros");
+		alert("No se han recibido registros");
 		navigator.notification.alert("No hay contactos en la base de datos");
 	}
-	
+	alert("Voy a cargar registros");
 	for(var i=0; i<results.rows.length; i++){
 		var persona = results.rows.item(i);
 		var selector = $("#lista_" + persona.categoria + " ul");
@@ -155,6 +157,7 @@ function queryDetalleSuccess(tx, results) {
 	if(results.rows.length == 0){
 		mkLog("No se han recibido registros para la vista detalle");
 		navigator.notification.alert("No hay detalles para ese elemento");
+		alert("No hay detalles para ese elemento");
 	}
 	
 	$.registro = results.rows.item(0);
