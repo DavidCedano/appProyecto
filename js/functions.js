@@ -204,15 +204,16 @@ function queryFormSuccess(tx, results) {
 	
 	$.registro = results.rows.item(0);
 	
-		$.imageURL = $.registro.foto;
+		$.imageURL = $.registro.imagen;
 		if($.imageURL == ""){
 			$.imageURL = "assets/no_foto.png";
 		}
-		$("#fotoEdit_img").attr("src", $.imageURL);
-		$("#ti_nombre").val($.registro.nombre);
-		$("#ti_apellidos").val($.registro.apellidos);
-		$("#ti_telefono").val($.registro.telefono);
-		$("#ti_mail").val($.registro.email);
+		$("#imagen").attr("src", $.imageURL);
+		$("#nombre").val($.registro.nombre);
+		$("#telefono").val($.registro.telefono);
+		$("#email").val($.registro.email);
+		$("#domicilio").val($.registro.domicilio);
+		$("#nota").val($.registro.nota);
 		
 		$("#cat_"+$.registro.categoria).trigger("click").trigger("click");	//$("#cat_"+$.registro.categoria).attr("checked",true).checkboxradio("refresh");
 }
@@ -222,13 +223,14 @@ $(document).on('pagebeforeshow', '#inicio', function(){
 function initForm(){
 	$.imageURL = "assets/no_foto.png";
 	
-	$("#fotoEdit_img").attr("src", $.imageURL);
-	$("#ti_nombre").val("");
-	$("#ti_apellidos").val("");
-	$("#ti_telefono").val("");
-	$("#ti_mail").val("");
+	$("#imagen").attr("src", $.imageURL);
+	$("#nombre").val("");
+	$("#telefono").val("");
+	$("#email").val("");
+	$("#domicilio").val("");
+	$("#nota").val("");
 		
-	$("#cat_familia").trigger("click").trigger("click")
+	$("#cat_carpinteria").trigger("click").trigger("click")
 }
 
 
@@ -242,7 +244,7 @@ function saveEditForm(){
 }
 
 function queryDBUpdateForm(tx){
-	var cat = $("#cajaCategorias").find("input:checked").val();
+	var cat = $("#lista_categoria").find("input:selected").val();
 	tx.executeSql('UPDATE servicios SET nombre="'+$("#ti_nombre").val()+'", apellidos="'+$("#ti_apellidos").val()+'",telefono="'+$("#ti_telefono").val()+'",email="'+$("#ti_mail").val()+'",categoria="'+cat+'",foto = "'+$.imageURL+'" WHERE id='+$.id);
 }
 function updateFormSuccess(tx) {
@@ -255,12 +257,12 @@ function updateFormSuccess(tx) {
 	
 	$("#li_"+$.id).remove();
 	
-	var cat = $("#cajaCategorias").find("input:checked").val();
+	var cat = $("#lista_categoria").find("input:selected").val();
 	var lista = $("#lista_" + cat + " ul")
 	lista.append(selector).listview('refresh');
 	
 	
-	$.mobile.changePage("#home");
+	$.mobile.changePage("#inicio");
 }
 
 
