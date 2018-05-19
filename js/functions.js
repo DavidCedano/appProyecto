@@ -224,7 +224,7 @@ function queryFormSuccess(tx, results) {
 		if($.imageURL == ""){
 			$.imageURL = "assets/no_foto.png";
 		}
-		//$("#imagen").attr("src", $.imageURL);
+		$("#imagen").attr("src", $.imageURL);
 		$("#nombre").val($.registro.nombre);
 		$("#telefono").val($.registro.telefono);
 		$("#email").val($.registro.email);
@@ -241,7 +241,7 @@ $(document).on('pagebeforeshow', '#inicio', function(){
 function initForm(){
 	$.imageURL = "assets/no_foto.png";
 	
-	//$("#imagen").attr("src", $.imageURL);
+	$("#imagen").attr("src", $.imageURL);
 	$("#nombre").val("");
 	$("#telefono").val("");
 	$("#email").val("");
