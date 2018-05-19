@@ -97,7 +97,8 @@ function creaSuccess(){
 
 function errorDB(err){
 	mkLog("Error procesando SQL " + err.code);
-	navigator.notification.alert("Error procesando SQL " + err.code);
+	//navigator.notification.alert("Error procesando SQL " + err.code);
+	alert("Error procesando SQL " + err.code);
 }
 
 
@@ -286,17 +287,17 @@ function updateFormSuccess(tx) {
 */
 function saveNewForm(){
 	if(db != null){
-		db.transaction(queryDBInsertForm(), errorDB);
+		db.transaction(queryDBInsertForm, errorDB);
 	}
 }
 
 function queryDBInsertForm(tx){
-	var cat = $("#lista_categoria").find("input:selected").val();
+	var cat = 'administrador';//$("#lista_categoria").find("input:selected").val();
 	
-	tx.executeSql("INSERT INTO servicios (nombre,imagen,telefono,email,domiclio,categoria,nota) VALUES ('"+$("#nombre").val()+"','"+$.imageURL+"','"+$("#telefono").val()+"','"+$("#email").val()+"','"+$("#domicilio").val()+"','"+cat+"','"+$("#nota").val()+"')", [], newFormSuccess, errorDB);
+	tx.executeSql("INSERT INTO servicios (nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES ('"+$("#nombre").val()+"','"+$.imageURL+"','"+$("#telefono").val()+"','"+$("#email").val()+"','"+$("#domicilio").val()+"','"+cat+"','"+$("#nota").val()+"')", [], newFormSuccess, errorDB);
 }
 function newFormSuccess(tx, results) {
-	var cat = $("#lista_categoria").find("input:selected").val();
+	var cat = 'administrador';//$("#lista_categoria").find("input:selected").val();
 	var lista = $("#lista_" + cat + " ul")
 	
 	
