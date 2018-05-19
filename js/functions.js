@@ -298,14 +298,14 @@ function saveNewForm(){
 function queryDBInsertForm(tx){
 	var cat = $("#lista_categoria").find("option:selected").val();
 	
-	tx.executeSql("INSERT INTO servicios (nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES ('"+$("#nombre").val()+"','"+$.imageURL+"','"+$("#telefono").val()+"','"+$("#email").val()+"','"+$("#domicilio").val()+"','"+cat+"','"+$("#nota").val()+"')", [], newFormSuccess, errorDB);
+	tx.executeSql("INSERT INTO servicios (nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES ('"+$("#alta_nombre").val()+"','"+$.imageURL+"','"+$("#alta_telefono").val()+"','"+$("#alta_email").val()+"','"+$("#alta_domicilio").val()+"','"+cat+"','"+$("#alta_nota").val()+"')", [], newFormSuccess, errorDB);
 }
 function newFormSuccess(tx, results) {
 	var cat = $("#lista_categoria").find("option:selected").val();
 	var lista = $("#lista_" + cat + " ul")
 	
 	
-	var obj = $('<li id="li_'+results.insertId+'"><a href="#detalle" data-uid='+results.insertId+' class="linkDetalles"><div class="interior_lista"><img src="'+ $.imageURL +'" class="img_peq"/><span>' + $("#nombre").val() + '</span></div></a><a href="#AgregarServicio"  data-theme="a" data-uid='+results.insertId+'  class="linkForm">Predet.</a></li>');
+	var obj = $('<li id="li_'+results.insertId+'"><a href="#detalle" data-uid='+results.insertId+' class="linkDetalles"><div class="interior_lista"><img src="'+ $.imageURL +'" class="img_peq"/><span>' + $("#alta_nombre").val() + '</span></div></a><a href="#AgregarServicio"  data-theme="a" data-uid='+results.insertId+'  class="linkForm">Predet.</a></li>');
 	obj.find('.linkDetalles').bind('click', function(e){
 		$.id = $(this).data('uid');
 	});
