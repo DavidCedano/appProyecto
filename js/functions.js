@@ -292,12 +292,12 @@ function saveNewForm(){
 }
 
 function queryDBInsertForm(tx){
-	var cat = 'administrador';//$("#lista_categoria").find("input:selected").val();
+	var cat = $("#lista_categoria").find("input:selected").val();
 	
 	tx.executeSql("INSERT INTO servicios (nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES ('"+$("#nombre").val()+"','"+$.imageURL+"','"+$("#telefono").val()+"','"+$("#email").val()+"','"+$("#domicilio").val()+"','"+cat+"','"+$("#nota").val()+"')", [], newFormSuccess, errorDB);
 }
 function newFormSuccess(tx, results) {
-	var cat = 'administrador';//$("#lista_categoria").find("input:selected").val();
+	var cat = $("#lista_categoria").find("input:selected").val();
 	var lista = $("#lista_" + cat + " ul")
 	
 	
