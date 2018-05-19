@@ -231,9 +231,9 @@ function queryFormSuccess(tx, results) {
 		$("#alta_domicilio").val($.registro.domicilio);
 		
 		
-		$("#opciones").val($.registro.categoria);//trigger("click").trigger("click");
+		$("#opciones option value="+ $.registro.categoria +"]").attr("selected",true);//trigger("click").trigger("click");
 			//$("#cat_"+$.registro.categoria).attr("checked",true).checkboxradio("refresh");
-			alert("valor de las opciones: " + $.registro.categoria);
+			//alert("valor de las opciones: " + $.registro.categoria);
 		$("#alta_nota").val($.registro.nota);
 }
 $(document).on('pagebeforeshow', '#inicio', function(){ 
