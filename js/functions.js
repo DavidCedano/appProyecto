@@ -119,7 +119,7 @@ function cargaDatosSuccess(tx, results){
 		if(foto == ""){
 			foto = "assets/no_foto.png";
 		}
-		selector.append('<li id="li_'+persona.id+'"><a href="#detalle" data-uid='+persona.id+' class="linkDetalles"><div class="interior_lista"><img src="'+ foto +'" class="img_peq"/><span>' + persona.nombre + ' ' + persona.apellidos+ '</span></div></a><a href="#AgregarServicio"  data-theme="a" data-uid='+persona.id+'  class="linkForm">Predet.</a></li>').listview('refresh');
+		selector.append('<li id="li_'+persona.id+'"><a href="#detalle" data-uid='+persona.id+' class="linkDetalles"><div class="interior_lista"><img src="'+ foto +'" class="img_peq"/><span>' + persona.nombre + '</span></div></a><a href="#AgregarServicio"  data-theme="a" data-uid='+persona.id+'  class="linkForm">Predet.</a></li>').listview('refresh');
 	}
 	
 	$(".linkDetalles").click(function(e){
@@ -164,7 +164,7 @@ function queryDetalleSuccess(tx, results) {
 			_foto = "assets/no_foto.png";
 		}
 		$("#foto_img").attr("src", _foto);
-		$("#nombre").html($.registro.nombre + " " + $.registro.apellidos);
+		$("#nombre").html($.registro.nombre);
 		$("#num_tel").html($.registro.telefono);
 		$("#telefono").attr("href", "tel:" + $.registro.telefono);
 		$("#label_mail").html("Mail: " + $.registro.email);
