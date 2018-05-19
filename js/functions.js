@@ -26,7 +26,7 @@ function mkLog(text){
 * carga inicial de la app
 */
 function onBodyLoad() {    
-	document.addEventListener("deviceready", onDeviceReady, false);
+	document.addEventListener("deviceready", onDeviceReady(), false);
 	alert('estoy en onBodyLoad');
 }
 
@@ -166,12 +166,13 @@ function queryDBFindByID(tx) {
 
 function queryDetalleSuccess(tx, results) {
 	mkLog("Recibidos de la DB en vista detalle" + results.rows.length + " registros");
+	alert("Recibidos de la DB en vista detalle" + results.rows.length + " registros");
 	if(results.rows.length == 0){
 		mkLog("No se han recibido registros para la vista detalle");
 		navigator.notification.alert("No hay detalles para ese elemento");
 		alert("No hay detalles para ese elemento");
 	}
-	
+	alert("voy a cargar los detalles");
 	$.registro = results.rows.item(0);
 	$("#categoria").html($.registro.categoria);
 		var _foto = $.registro.foto;
