@@ -7,3 +7,13 @@
 	vertical-align: baseline;
 	border-radius: 15px;
 }
+
+.caja_blanca{
+	background-color:#FFFFFF;
+	border-radius:10px;
+	padding-left:6px;
+	padding-right:6px;
+	padding-bottom:6px;
+	padding-top:1px;
+	margin-bottom:10px;
+}
