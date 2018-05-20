@@ -294,6 +294,7 @@ function saveDeleteForm(){
 
 function queryDBDeleteForm(tx){
 	tx.executeSql('DELETE FROM servicios WHERE id='+$.id);
+	$.mobile.changePage("#inicio");
 }
 
 /*
