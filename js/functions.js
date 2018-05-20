@@ -229,11 +229,7 @@ function queryFormSuccess(tx, results) {
 		$("#alta_telefono").val($.registro.telefono);
 		$("#alta_email").val($.registro.email);
 		$("#alta_domicilio").val($.registro.domicilio);
-		
-		
-		$("#opciones").val($.registro.categoria).attr("selected",true);//trigger("click").trigger("click");
-			//$("#cat_"+$.registro.categoria).attr("checked",true).checkboxradio("refresh");
-			//alert("valor de las opciones: " + $.registro.categoria);
+		$("#cat_"+$.registro.categoria).trigger("click").trigger("click");
 		$("#alta_nota").val($.registro.nota);
 }
 $(document).on('pagebeforeshow', '#inicio', function(){ 
@@ -264,20 +260,20 @@ function saveEditForm(){
 }
 
 function queryDBUpdateForm(tx){
-	var cat = $("#lista_categoria").find("option:selected").val();
-	tx.executeSql('UPDATE servicios SET nombre="'+$("#ti_nombre").val()+'", apellidos="'+$("#ti_apellidos").val()+'",telefono="'+$("#ti_telefono").val()+'",email="'+$("#ti_mail").val()+'",categoria="'+cat+'",foto = "'+$.imageURL+'" WHERE id='+$.id);
+	var cat = $("#lista_categoria").find("input:checked").val();
+	tx.executeSql('UPDATE servicios SET nombre="'+$("#alta_nombre").val()+'",imagen = "'+$.imageURL+'",telefono="'+$("#alta_telefono").val()+'",email="'+$("#alta_email").val()+'",domicilio="'+$("#alta_domicilio").val()+'",categoria="'+cat+'" WHERE id='+$.id);
 }
 function updateFormSuccess(tx) {
 	var selector = $("#li_"+$.id);
 	
 	var selector = $("#li_"+$.id).clone(true);
 	selector.find("img").attr("src", $.imageURL);
-	selector.find("a:first").find("span").html($("#ti_nombre").val() + " " + $("#ti_apellidos").val());
+	selector.find("a:first").find("span").html($("#alta_nombre").val());
 	
 	
 	$("#li_"+$.id).remove();
 	
-	var cat = $("#lista_categoria").find("option:selected").val();
+	var cat = $("#lista_categoria").find("input:checked").val();
 	var lista = $("#lista_" + cat + " ul")
 	lista.append(selector).listview('refresh');
 	
@@ -297,12 +293,12 @@ function saveNewForm(){
 }
 
 function queryDBInsertForm(tx){
-	var cat = $("#lista_categoria").find("option:selected").val();
+	var cat = $("#lista_categoria").find("input:checked").val();
 	
 	tx.executeSql("INSERT INTO servicios (nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES ('"+$("#alta_nombre").val()+"','"+$.imageURL+"','"+$("#alta_telefono").val()+"','"+$("#alta_email").val()+"','"+$("#alta_domicilio").val()+"','"+cat+"','"+$("#alta_nota").val()+"')", [], newFormSuccess, errorDB);
 }
 function newFormSuccess(tx, results) {
-	var cat = $("#lista_categoria").find("option:selected").val();
+	var cat = $("#lista_categoria").find("input:checked").val();
 	var lista = $("#lista_" + cat + " ul")
 	
 	
