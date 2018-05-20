@@ -49,30 +49,59 @@ function onDeviceReady(){
 	$("#btn_guardar").click(function(e){
 		if($.id == -1){
 		 	alert('voy al metodo saveNewForm');
-			saveNewForm();
+		 	if($("#alta_nombre").val() == "" || $("#alta_telefono").val() == "" || $("#alta_email").val() == "" || $("#alta_domicilio").val() == "" || $("#alta_nota").val() == ""){
+		 		alert('Hay campos vacíos. Agregue información.');
+		 	}else{
+				saveNewForm();
+			}
 		 }
 	 });
 
 	$("#btn_actualizar").click(function(e){
 		if($.id != -1){
 			alert('voy al metodo saveEditForm');
-		 	saveEditForm();
+			if($("#act_nombre").val() == "" || $("#act_telefono").val() == "" || $("#act_email").val() == "" || $("#act_domicilio").val() == "" || $("#act_nota").val() == ""){
+		 		alert('Hay campos vacíos. Agregue información.');
+		 	}else{
+		 		var opcion = confirm("¿Desea Actualizar?");
+	    		if (opcion == true) {
+		 			saveEditForm();
+		 		} else {
+		    
+				}
+		 	}
 		 }
 	 });
 
 	$("#btn_eliminar").click(function(e){
 		alert('voy al metodo saveDeleteForm');
-		saveDeleteForm();
+	    var opcion1 = confirm("¿Desea Eliminarlo?");
+	    if (opcion1 == true) {
+	    	saveDeleteForm();
+		} else {
+		    
+		}
+		
 	 });
 
 	$("#btn_cancelar1").click(function(e){
 		alert('voy al metodo cancelProcess1');
-		cancelProcess1();
+		var opcion2 = confirm("¿Desea Cancelar?");
+	    if (opcion2 == true) {
+			cancelProcess1();
+		} else {
+		    
+		}
 	 });
 
 	$("#btn_cancelar2").click(function(e){
 		alert('voy al metodo cancelProcess2');
-		cancelProcess2();
+		var opcion3 = confirm("¿Desea Cancelar?");
+	    if (opcion3 == true) {
+			cancelProcess2();
+		} else {
+		    
+		}
 	 });
 }
 
@@ -108,7 +137,6 @@ function creaNuevaDB(tx){
 	alert('inserte el predeterminado');
 }
 
-
 function creaSuccess(){
 	window.localStorage.setItem("existe_db", 1);
 	cargaDatos();
@@ -119,8 +147,6 @@ function errorDB(err){
 	//navigator.notification.alert("Error procesando SQL " + err.code);
 	alert("Error procesando SQL " + err.code);
 }
-
-
 
 /* 
 * carga de datos desde la base de datos
@@ -141,7 +167,7 @@ function cargaDatosSuccess(tx, results){
 	if(results.rows.length == 0){
 		mkLog("No se han recibido registros");
 		alert("No se han recibido registros");
-		navigator.notification.alert("No hay contactos en la base de datos");
+		//navigator.notification.alert("No hay contactos en la base de datos");
 	}
 	alert("Voy a cargar registros");
 	for(var i=0; i<results.rows.length; i++){
@@ -206,7 +232,7 @@ function queryDetalleSuccess(tx, results) {
 	alert("Recibidos de la DB en vista detalle" + results.rows.length + " registros");
 	if(results.rows.length == 0){
 		mkLog("No se han recibido registros para la vista detalle");
-		navigator.notification.alert("No hay detalles para ese elemento");
+		//navigator.notification.alert("No hay detalles para ese elemento");
 		alert("No hay detalles para ese elemento");
 	}
 	alert("voy a cargar los detalles");
@@ -249,7 +275,7 @@ function queryFormSuccess(tx, results) {
 	alert("Recibidos de la DB en vista Form" + results.rows.length + " registros");
 	if(results.rows.length == 0){
 		mkLog("No se han recibido registros para la vista form");
-		navigator.notification.alert("No hay detalles para ese elemento");
+		//navigator.notification.alert("No hay detalles para ese elemento");
 		alert("No hay detalles para ese elemento");
 	}
 	alert("voy a cargar los datos para editar");
@@ -312,6 +338,7 @@ function queryDBDeleteForm(tx){
 	tx.executeSql('DELETE FROM servicios WHERE id='+$.id);
 	$("#li_"+$.id).remove();
 	$.mobile.changePage("#inicio");
+	alert('Se ha Eliminado Correctamente');
 }
 
 /*
@@ -341,11 +368,9 @@ function updateFormSuccess(tx) {
 	var lista = $("#lista_" + cat + " ul")
 	lista.append(selector).listview('refresh');
 	
-	
 	$.mobile.changePage("#inicio");
+	alert('Se ha Actualizado Correctamente');
 }
-
-
 
 /*
 * creando registros
@@ -378,4 +403,5 @@ function newFormSuccess(tx, results) {
 	
 	
 	$.mobile.changePage("#inicio");
+	alert('Se ha Agregado Correctamente');
 }
