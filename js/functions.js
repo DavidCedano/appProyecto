@@ -205,7 +205,7 @@ function queryDetalleSuccess(tx, results) {
 * vista detalle
 */
 //vista de la página de edición
-$(document).on('pagebeforeshow', '#ActualizarEliminarServicio', function(){ 
+$(document).on('pagebeforeshow', '#AgregarServicio', function(){ 
 	mkLog('ID recuperado en vista ActualizarEliminarServicio: ' + $.id);
 	alert('ID recuperado en vista ActualizarEliminarServicio: ' + $.id);
 	
@@ -235,17 +235,20 @@ function queryFormSuccess(tx, results) {
 		if($.imageURL == ""){
 			$.imageURL = "assets/no_foto.png";
 		}
-		$("#alta_imagen").attr("src", $.imageURL);
-		$("#alta_nombre").val($.registro.nombre);
-		$("#alta_telefono").val($.registro.telefono);
-		$("#alta_email").val($.registro.email);
-		$("#alta_domicilio").val($.registro.domicilio);
+		$("#act_imagen").attr("src", $.imageURL);
+		$("#act_nombre").val($.registro.nombre);
+		$("#act_telefono").val($.registro.telefono);
+		$("#act_email").val($.registro.email);
+		$("#act_domicilio").val($.registro.domicilio);
 		$("#cat_"+$.registro.categoria).trigger("click").trigger("click");
-		$("#alta_nota").val($.registro.nota);
+		$("#act_nota").val($.registro.nota);
 }
+
 $(document).on('pagebeforeshow', '#inicio', function(){ 
 	$.id = -1;
+	alert('el id vale: ' + $.id);
 });
+
 function initForm(){
 	$.imageURL = "assets/no_foto.png";
 	
@@ -256,7 +259,7 @@ function initForm(){
 	$("#act_domicilio").val("");
 	$("#act_nota").val("");
 		
-	$("#cat_administrador").trigger("click").trigger("click");
+	$("#cat_administrador2").trigger("click").trigger("click");
 	$("#act_nota").val("");
 }
 
