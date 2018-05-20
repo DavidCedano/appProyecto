@@ -263,7 +263,7 @@ function saveEditForm(){
 
 function queryDBUpdateForm(tx){
 	var cat = $("#lista_categoria").find("input:checked").val();
-	tx.executeSql('UPDATE servicios SET nombre="'+$("#alta_nombre").val()+'",imagen = "'+$.imageURL+'",telefono="'+$("#alta_telefono").val()+'",email="'+$("#alta_email").val()+'",domicilio="'+$("#alta_domicilio").val()+'",categoria="'+cat+'",nota="'+("#alta_nota").val()+'" WHERE id='+$.id);
+	tx.executeSql('UPDATE servicios SET nombre="'+$("#alta_nombre").val()+'",imagen = "'+$.imageURL+'",telefono="'+$("#alta_telefono").val()+'",email="'+$("#alta_email").val()+'",domicilio="'+$("#alta_domicilio").val()+'",categoria="'+cat+'",nota="'+$("#alta_nota").val()+'" WHERE id='+$.id);
 }
 function updateFormSuccess(tx) {
 	var selector = $("#li_"+$.id);
