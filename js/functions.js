@@ -141,7 +141,7 @@ function cargaDatosSuccess(tx, results){
 		if(foto == ""){
 			foto = "assets/no_foto.png";
 		}
-		selector.append('<li id="li_'+persona.id+'"><a href="#detalle" data-uid='+persona.id+' class="linkDetalles"><div class="interior_lista"><img src="'+ foto +'" class="img_peq"/><span>' + persona.nombre + '</span></div></a><a href="#AgregarServicio"  data-theme="a" data-uid='+persona.id+'  class="linkForm">Predet.</a></li>').listview('refresh');
+		selector.append('<li id="li_'+persona.id+'"><a href="#detalle" data-uid='+persona.id+' class="linkDetalles"><div class="interior_lista"><img src="'+ foto +'" class="img_peq"/><span>' + persona.nombre + '</span></div></a><a href="#ActualizarEliminarServicio"  data-theme="a" data-uid='+persona.id+'  class="linkForm">Predet.</a></li>').listview('refresh');
 	}
 	
 	$(".linkDetalles").click(function(e){
@@ -153,7 +153,25 @@ function cargaDatosSuccess(tx, results){
 	});
 }
 
+$(document).on("pagebeforeshow", "#AgregarServicio", function(){
+	mkLog('ID recuperado en vista AgregarServicio: ' + $.id);
+	alert('ID recuperado en vista AgregarServicio: ' + $.id);
+	initForm();
+});
 
+function initForm(){
+	$.imageURL = "assets/no_foto.png";
+	
+	$("#alta_imagen").attr("src", $.imageURL);
+	$("#alta_nombre").val("");
+	$("#alta_telefono").val("");
+	$("#alta_email").val("");
+	$("#alta_domicilio").val("");
+	$("#alta_nota").val("");
+		
+	$("#cat_administrador").trigger("click").trigger("click");
+	$("#alta_nota").val("");
+}
 
 
 /*
@@ -205,11 +223,11 @@ function queryDetalleSuccess(tx, results) {
 * vista detalle
 */
 //vista de la página de edición
-$(document).on('pagebeforeshow', '#AgregarServicio', function(){ 
+$(document).on('pagebeforeshow', '#ActualizarEliminarServicio', function(){ 
 	mkLog('ID recuperado en vista ActualizarEliminarServicio: ' + $.id);
 	alert('ID recuperado en vista ActualizarEliminarServicio: ' + $.id);
 	
-	initForm();
+	initForm2();
 	if(db != null && $.id != -1){
 		db.transaction(queryDBFindByIDForm, errorDB);
 	}
@@ -249,7 +267,7 @@ $(document).on('pagebeforeshow', '#inicio', function(){
 	alert('el id vale: ' + $.id);
 });
 
-function initForm(){
+function initForm2(){
 	$.imageURL = "assets/no_foto.png";
 	
 	$("#act_imagen").attr("src", $.imageURL);
