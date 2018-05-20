@@ -181,9 +181,11 @@ function queryDetalleSuccess(tx, results) {
 		}
 		$("#foto_img").attr("src", _foto);
 		$("#nombre").html($.registro.nombre);
-		$("#num_tel").html($.registro.telefono);
-		$("#telefono").attr("href", "tel:" + $.registro.telefono);
-		$("#label_mail").html("Mail: " + $.registro.email);
+		$("#telefono").html($.registro.telefono);
+		$("#email").html($.registro.email);
+		$("#domicilio").html($.registro.domicilio);
+		$("#nota").html($.registro.nota);
+		
 }
 
 
