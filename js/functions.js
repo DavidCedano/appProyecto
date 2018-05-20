@@ -27,28 +27,28 @@ function mkLog(text){
 */
 function onBodyLoad() {    
 	document.addEventListener("deviceready", onDeviceReady(), false);
-	alert('estoy en onBodyLoad');
+	//alert('estoy en onBodyLoad');
 }
 
 function onDeviceReady(){
 	mkLog("Aplicación cargada y lista");
-	alert('Aplicación cargada y lista');
+	//alert('Aplicación cargada y lista');
     //navigator.notification.alert("PhoneGap is working");
 	
 	existe_db = window.localStorage.getItem("existe_db");
 	db = window.openDatabase("servicios", "1.0", "DB del curso Phonegap", 200000);
 	if(existe_db == null){
-		alert('voy al metodo creaDB');
+		//alert('voy al metodo creaDB');
 		creaDB();
 	}else{
-		alert('voy al metodo cargaDatos');
+		//alert('voy al metodo cargaDatos');
 		cargaDatos();
 	}
 	
 	
 	$("#btn_guardar").click(function(e){
 		if($.id == -1){
-		 	alert('voy al metodo saveNewForm');
+		 	//alert('voy al metodo saveNewForm');
 		 	if($("#alta_nombre").val() == "" || $("#alta_telefono").val() == "" || $("#alta_email").val() == "" || $("#alta_domicilio").val() == "" || $("#alta_nota").val() == ""){
 		 		alert('Hay campos vacíos. Agregue información.');
 		 	}else{
@@ -59,7 +59,7 @@ function onDeviceReady(){
 
 	$("#btn_actualizar").click(function(e){
 		if($.id != -1){
-			alert('voy al metodo saveEditForm');
+			//alert('voy al metodo saveEditForm');
 			if($("#act_nombre").val() == "" || $("#act_telefono").val() == "" || $("#act_email").val() == "" || $("#act_domicilio").val() == "" || $("#act_nota").val() == ""){
 		 		alert('Hay campos vacíos. Agregue información.');
 		 	}else{
@@ -74,7 +74,7 @@ function onDeviceReady(){
 	 });
 
 	$("#btn_eliminar").click(function(e){
-		alert('voy al metodo saveDeleteForm');
+		//alert('voy al metodo saveDeleteForm');
 	    var opcion1 = confirm("¿Desea Eliminarlo?");
 	    if (opcion1 == true) {
 	    	saveDeleteForm();
@@ -85,7 +85,7 @@ function onDeviceReady(){
 	 });
 
 	$("#btn_cancelar1").click(function(e){
-		alert('voy al metodo cancelProcess1');
+		//alert('voy al metodo cancelProcess1');
 		var opcion2 = confirm("¿Desea Cancelar?");
 	    if (opcion2 == true) {
 			cancelProcess1();
@@ -95,7 +95,7 @@ function onDeviceReady(){
 	 });
 
 	$("#btn_cancelar2").click(function(e){
-		alert('voy al metodo cancelProcess2');
+		//alert('voy al metodo cancelProcess2');
 		var opcion3 = confirm("¿Desea Cancelar?");
 	    if (opcion3 == true) {
 			cancelProcess2();
@@ -116,7 +116,7 @@ function creaDB(){
 
 function creaNuevaDB(tx){
 	mkLog("Creando base de datos");
-	alert('creando base de datos');
+	//alert('creando base de datos');
 	
 	tx.executeSql('DROP TABLE IF EXISTS servicios');
 	
@@ -134,7 +134,7 @@ function creaNuevaDB(tx){
 	
 	tx.executeSql("INSERT INTO servicios (id,nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES (1,'Ejemplo1','','6699900970','ejemplo@mail.com','granadas 258','carpinteria','soy el mejor yeah!')");
 
-	alert('inserte el predeterminado');
+	//alert('inserte el predeterminado');
 }
 
 function creaSuccess(){
@@ -145,7 +145,7 @@ function creaSuccess(){
 function errorDB(err){
 	mkLog("Error procesando SQL " + err.code);
 	//navigator.notification.alert("Error procesando SQL " + err.code);
-	alert("Error procesando SQL " + err.code);
+	//alert("Error procesando SQL " + err.code);
 }
 
 /* 
@@ -157,19 +157,19 @@ function cargaDatos(){
 
 function cargaRegistros(tx){
 	mkLog("Cargando registros de la base de datos");
-	alert('cargando registros de la base de datos');
+	//alert('cargando registros de la base de datos');
 	tx.executeSql('SELECT * FROM servicios', [], cargaDatosSuccess, errorDB);
 }
 
 function cargaDatosSuccess(tx, results){
 	mkLog("Recibidos de la DB " + results.rows.length + " registros");
-	alert("Recibidos de la DB " + results.rows.length + " registros");
+	//alert("Recibidos de la DB " + results.rows.length + " registros");
 	if(results.rows.length == 0){
 		mkLog("No se han recibido registros");
 		alert("No se han recibido registros");
 		//navigator.notification.alert("No hay contactos en la base de datos");
 	}
-	alert("Voy a cargar registros");
+	//alert("Voy a cargar registros");
 	for(var i=0; i<results.rows.length; i++){
 		var persona = results.rows.item(i);
 		var selector = $("#lista_" + persona.categoria + " ul");
@@ -191,7 +191,7 @@ function cargaDatosSuccess(tx, results){
 
 $(document).on("pagebeforeshow", "#AgregarServicio", function(){
 	mkLog('ID recuperado en vista AgregarServicio: ' + $.id);
-	alert('ID recuperado en vista AgregarServicio: ' + $.id);
+	//alert('ID recuperado en vista AgregarServicio: ' + $.id);
 	initForm();
 });
 
@@ -224,18 +224,18 @@ $(document).on("pagebeforeshow", "#detalle", function(){
 
 function queryDBFindByID(tx) {
     tx.executeSql('SELECT * FROM servicios WHERE id='+$.id, [], queryDetalleSuccess, errorDB);
-    alert("pase la consulta");
+    //alert("pase la consulta");
 }
 
 function queryDetalleSuccess(tx, results) {
 	mkLog("Recibidos de la DB en vista detalle" + results.rows.length + " registros");
-	alert("Recibidos de la DB en vista detalle" + results.rows.length + " registros");
+	//alert("Recibidos de la DB en vista detalle" + results.rows.length + " registros");
 	if(results.rows.length == 0){
 		mkLog("No se han recibido registros para la vista detalle");
 		//navigator.notification.alert("No hay detalles para ese elemento");
 		alert("No hay detalles para ese elemento");
 	}
-	alert("voy a cargar los detalles");
+	//alert("voy a cargar los detalles");
 	$.registro = results.rows.item(0);
 	$("#categoria").html($.registro.categoria);
 		var _foto = $.registro.imagen;
@@ -257,7 +257,7 @@ function queryDetalleSuccess(tx, results) {
 //vista de la página de edición
 $(document).on('pagebeforeshow', '#ActualizarEliminarServicio', function(){ 
 	mkLog('ID recuperado en vista ActualizarEliminarServicio: ' + $.id);
-	alert('ID recuperado en vista ActualizarEliminarServicio: ' + $.id);
+	//alert('ID recuperado en vista ActualizarEliminarServicio: ' + $.id);
 	
 	initForm2();
 	if(db != null && $.id != -1){
@@ -267,18 +267,18 @@ $(document).on('pagebeforeshow', '#ActualizarEliminarServicio', function(){
 
 function queryDBFindByIDForm(tx) {
     tx.executeSql('SELECT * FROM servicios WHERE id='+$.id, [], queryFormSuccess, errorDB);
-    alert('estoy en la 2da consulta');
+    //alert('estoy en la 2da consulta');
 }
 
 function queryFormSuccess(tx, results) {
 	mkLog("Recibidos de la DB en vista Form" + results.rows.length + " registros");
-	alert("Recibidos de la DB en vista Form" + results.rows.length + " registros");
+	//alert("Recibidos de la DB en vista Form" + results.rows.length + " registros");
 	if(results.rows.length == 0){
 		mkLog("No se han recibido registros para la vista form");
 		//navigator.notification.alert("No hay detalles para ese elemento");
 		alert("No hay detalles para ese elemento");
 	}
-	alert("voy a cargar los datos para editar");
+	//alert("voy a cargar los datos para editar");
 	$.registro = results.rows.item(0);
 	
 		$.imageURL = $.registro.imagen;
