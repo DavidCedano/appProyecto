@@ -64,6 +64,16 @@ function onDeviceReady(){
 		alert('voy al metodo saveDeleteForm');
 		saveDeleteForm();
 	 });
+
+	$("#btn_cancelar1").click(function(e){
+		alert('voy al metodo cancelProcess1');
+		cancelProcess1();
+	 });
+
+	$("#btn_cancelar2").click(function(e){
+		alert('voy al metodo cancelProcess2');
+		cancelProcess2();
+	 });
 }
 
 
@@ -215,10 +225,6 @@ function queryDetalleSuccess(tx, results) {
 		
 }
 
-
-
-
-
 /*
 * vista detalle
 */
@@ -281,7 +287,17 @@ function initForm2(){
 	$("#act_nota").val("");
 }
 
+//cancelar de AgregarServicio
+function cancelProcess1(){
+	initForm();
+	$.mobile.changePage("#inicio");
+}
 
+//cancelar de ActualizarEliminarServicio
+function cancelProcess2(){
+	initForm2();
+	$.mobile.changePage("#inicio");
+}
 
 /*
 * eliminando registros
@@ -294,7 +310,6 @@ function saveDeleteForm(){
 
 function queryDBDeleteForm(tx){
 	tx.executeSql('DELETE FROM servicios WHERE id='+$.id);
-	//var selector = $("#li_"+$.id);
 	$("#li_"+$.id).remove();
 	$.mobile.changePage("#inicio");
 }
@@ -351,7 +366,7 @@ function newFormSuccess(tx, results) {
 	var lista = $("#lista_" + cat + " ul")
 	
 	
-	var obj = $('<li id="li_'+results.insertId+'"><a href="#detalle" data-uid='+results.insertId+' class="linkDetalles"><div class="interior_lista"><img src="'+ $.imageURL +'" class="img_peq"/><span>' + $("#alta_nombre").val() + '</span></div></a><a href="#AgregarServicio"  data-theme="a" data-uid='+results.insertId+'  class="linkForm">Predet.</a></li>');
+	var obj = $('<li id="li_'+results.insertId+'"><a href="#detalle" data-uid='+results.insertId+' class="linkDetalles"><div class="interior_lista"><img src="'+ $.imageURL +'" class="img_peq"/><span>' + $("#alta_nombre").val() + '</span></div></a><a href="#ActualizarEliminarServicio"  data-theme="a" data-uid='+results.insertId+'  class="linkForm">Predet.</a></li>');
 	obj.find('.linkDetalles').bind('click', function(e){
 		$.id = $(this).data('uid');
 	});
