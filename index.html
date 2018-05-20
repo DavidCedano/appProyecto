@@ -128,36 +128,44 @@
 <!-- esta página es la de detalle-->
     <div data-role="page" id="detalle">
       <div data-role="header">
-          <div class="ui-btn-left">
-            <a href="#" data-role="button" data-inline="true" data-icon="back" data-iconpos="notext" data-rel="back">Volver</a>
-          </div>
         <h1>Información del Servicio</h1>
       </div>
       <div data-role="content">
         <div class="caja_blanca">
           <!-- categoria -->
-          <p class="titulo2" id="categoria"></p>
+          <label class="titulo">Categoria:</label><br/><br/><label id="categoria"></label><br/><br/>
           <!-- imagen -->
             <div id="foto"><img id="foto_img" src="assets/no_foto.png"/></div>
         </div>
 
       <div class="caja_blanca">
         <!-- nombre -->
-        <h3 id="nombre"></h3>
+        <label class="titulo">Nombre:</label><br/><br/><label id="nombre"></label><br/><br/>
         <!-- telefono -->
-        <h3 id="telefono"></h3>
+        <label class="titulo">Teléfono:</label><br/><br/><label id="telefono"></label><br/><br/>
         <!-- emal -->
-        <h3 id="email"></h3>
+        <label class="titulo">Email:</label><br/><br/><label id="email"></label><br/><br/>
         <!-- domicilio -->
-        <h3 id="domicilio"></h3>
+        <label class="titulo">Domicilio:</label><br/><br/><label id="domicilio"></label><br/><br/>
         <!-- nota -->
-        <h3 id="nota"></h3>
+        <label class="titulo">Nota:</label><br/><br/><label id="nota"></label><br/><br/>
 
          <!--<div ><span id="num_tel"></span> <a href="#" data-role="button" data-inline="true" data-icon="phone" data-iconpos="notext" id="telefono">Llamar</a></div>
         <div id="email"><span id="label_mail">m.olivarria@ccumazatlan.mx</span> <a href="#" data-role="button" data-inline="true" data-icon="mail" data-iconpos="notext">Llamar</a></div>-->
         </div>
 
 
+      </div>
+
+      <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#" data-rol="button" data-icon="arrow-l" data-rel="back">Atras</a></li>
+            <li><a href="index.html" data-rol="button" data-icon="home">Inicio</a></li>
+          <li><a href="#info" data-rol="button" data-icon="info" data-rel="dialog">Info</a></li>
+          <li><a href="#Contactos" data-rol="button" data-icon="arrow-r">Siguiente</a></li>
+          </ul>
+         </div>
       </div>
     </div>
 	
