@@ -258,13 +258,13 @@ function queryFormSuccess(tx, results) {
 		$("#act_telefono").val($.registro.telefono);
 		$("#act_email").val($.registro.email);
 		$("#act_domicilio").val($.registro.domicilio);
-		$("#cat_"+$.registro.categoria).trigger("click").trigger("click");
+		$("#cat2_"+$.registro.categoria).trigger("click").trigger("click");
 		$("#act_nota").val($.registro.nota);
 }
 
 $(document).on('pagebeforeshow', '#inicio', function(){ 
 	$.id = -1;
-	alert('el id vale: ' + $.id);
+	//alert('el id vale: ' + $.id);
 });
 
 function initForm2(){
