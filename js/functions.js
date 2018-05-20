@@ -175,7 +175,7 @@ function queryDetalleSuccess(tx, results) {
 	alert("voy a cargar los detalles");
 	$.registro = results.rows.item(0);
 	$("#categoria").html($.registro.categoria);
-		var _foto = $.registro.foto;
+		var _foto = $.registro.imagen;
 		if(_foto == ""){
 			_foto = "assets/no_foto.png";
 		}
