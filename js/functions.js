@@ -47,13 +47,22 @@ function onDeviceReady(){
 	
 	
 	$("#btn_guardar").click(function(e){
-		if($.id != -1){
-			alert('voy al metodo saveEditForm');
-		 	saveEditForm();
-		 }else{
+		if($.id == -1){
 		 	alert('voy al metodo saveNewForm');
 			saveNewForm();
 		 }
+	 });
+
+	$("#btn_actualizar").click(function(e){
+		if($.id != -1){
+			alert('voy al metodo saveEditForm');
+		 	saveEditForm();
+		 }
+	 });
+
+	$("#btn_eliminar").click(function(e){
+		/*alert('voy al metodo saveDeleteForm');
+		saveDeleteForm();*/
 	 });
 }
 
@@ -196,9 +205,9 @@ function queryDetalleSuccess(tx, results) {
 * vista detalle
 */
 //vista de la página de edición
-$(document).on('pagebeforeshow', '#AgregarServicio', function(){ 
-	mkLog('ID recuperado en vista AgregarServicio: ' + $.id);
-	alert('ID recuperado en vista AgregarServicio: ' + $.id);
+$(document).on('pagebeforeshow', '#ActualizarEliminarServicio', function(){ 
+	mkLog('ID recuperado en vista ActualizarEliminarServicio: ' + $.id);
+	alert('ID recuperado en vista ActualizarEliminarServicio: ' + $.id);
 	
 	initForm();
 	if(db != null && $.id != -1){
@@ -240,15 +249,15 @@ $(document).on('pagebeforeshow', '#inicio', function(){
 function initForm(){
 	$.imageURL = "assets/no_foto.png";
 	
-	$("#alta_imagen").attr("src", $.imageURL);
-	$("#alta_nombre").val("");
-	$("#alta_telefono").val("");
-	$("#alta_email").val("");
-	$("#alta_domicilio").val("");
-	$("#alta_nota").val("");
+	$("#act_imagen").attr("src", $.imageURL);
+	$("#act_nombre").val("");
+	$("#act_telefono").val("");
+	$("#act_email").val("");
+	$("#act_domicilio").val("");
+	$("#act_nota").val("");
 		
 	$("#cat_administrador").trigger("click").trigger("click");
-	$("#alta_nota").val("");
+	$("#act_nota").val("");
 }
 
 
@@ -262,20 +271,20 @@ function saveEditForm(){
 }
 
 function queryDBUpdateForm(tx){
-	var cat = $("#lista_categoria").find("input:checked").val();
-	tx.executeSql('UPDATE servicios SET nombre="'+$("#alta_nombre").val()+'",imagen = "'+$.imageURL+'",telefono="'+$("#alta_telefono").val()+'",email="'+$("#alta_email").val()+'",domicilio="'+$("#alta_domicilio").val()+'",categoria="'+cat+'",nota="'+$("#alta_nota").val()+'" WHERE id='+$.id);
+	var cat = $("#lista_categoria2").find("input:checked").val();
+	tx.executeSql('UPDATE servicios SET nombre="'+$("#act_nombre").val()+'",imagen = "'+$.imageURL+'",telefono="'+$("#act_telefono").val()+'",email="'+$("#act_email").val()+'",domicilio="'+$("#act_domicilio").val()+'",categoria="'+cat+'",nota="'+$("#act_nota").val()+'" WHERE id='+$.id);
 }
 function updateFormSuccess(tx) {
 	var selector = $("#li_"+$.id);
 	
 	var selector = $("#li_"+$.id).clone(true);
 	selector.find("img").attr("src", $.imageURL);
-	selector.find("a:first").find("span").html($("#alta_nombre").val());
+	selector.find("a:first").find("span").html($("#act_nombre").val());
 	
 	
 	$("#li_"+$.id).remove();
 	
-	var cat = $("#lista_categoria").find("input:checked").val();
+	var cat = $("#lista_categoria2").find("input:checked").val();
 	var lista = $("#lista_" + cat + " ul")
 	lista.append(selector).listview('refresh');
 	

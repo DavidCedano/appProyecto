@@ -171,7 +171,7 @@
 	
 <div data-role="page" id="AgregarServicio">
   <div data-role="header">
-    <h1>Alta / Actualización de Servicios</h1>
+    <h1>Alta de Servicios</h1>
   </div>
   <div data-role="content">
     
@@ -194,20 +194,6 @@
     <div data-role="fieldcontain" align="center">
       <input type="text" name="domicilio" id="alta_domicilio" value=""  placeholder="Domicilio"/>
     </div>
-
-    <!--<div id="lista_categoria">
-      <div data-role="fieldcontain" align="center">
-        <select name="selectmenu" id="opciones">
-          <option value="" disabled selected>Categoria</option>
-          <option value="administrador" id="cat_administrador">Administrador de Empresas</option>
-          <option value="carpinteria" id="cat_carpinteria">Carpíntero</option>
-          <option value="diseño" id="cat_diseño">Diseñador Gráfico</option>
-          <option value="ingeniero" id="cat_ingeniero">Ingeniero en Sistemas</option>
-          <option value="plomeria" id="cat_plomeria">Plomería</option>
-          <option value="reparacion" id="cat_reparacion">Reparación de Celulares y Computadoras</option>
-        </select>
-      </div>
-    </div>-->
 
     <div id="lista_categoria">
                <div data-role="fieldcontain" class="nuevo">
@@ -244,6 +230,75 @@
       <li><a href="index.html" data-rol="button" data-icon="home">Inicio</a></li>
 	  <li><a href="#info" data-rol="button" data-icon="info" data-rel="dialog">Info</a></li>
 	  <li><a href="#Contactos" data-rol="button" data-icon="arrow-r">Siguiente</a></li>
+    </ul>
+  </div>
+ </div>
+</div>
+
+<!-- Pagina de Actualizacion-->
+
+<div data-role="page" id="ActualizarEliminarServicio">
+  <div data-role="header">
+    <h1>Actualización/Eliminación de Servicios</h1>
+  </div>
+  <div data-role="content">
+    
+    <div data-role="fieldcontain" align="center">
+      <div id="fotoEdit"><a href="#"><img id="act_imagen" src="assets/no_foto.png"/></a>
+    </div>
+
+    <div data-role="fieldcontain" align="center">
+      <input type="text" name="nombre" id="act_nombre" value="" placeholder="Nombre del Servicio"/>
+    </div>
+
+    <div data-role="fieldcontain" align="center">
+      <input type="number" name="telefono" id="act_telefono" value="" placeholder="Teléfono"/>
+    </div>
+     
+    <div data-role="fieldcontain" align="center">
+      <input type="text" name="email" id="act_email" value="" placeholder="E-mail" />
+    </div>
+
+    <div data-role="fieldcontain" align="center">
+      <input type="text" name="domicilio" id="act_domicilio" value=""  placeholder="Domicilio"/>
+    </div>
+
+    <div id="lista_categoria2">
+               <div data-role="fieldcontain" class="nuevo">
+                 <fieldset data-role="controlgroup" data-type="vertical">
+                  <label class="titulo2">Categoria:</label><br/><br/>
+                   <input type="radio" class="piedras" name="categoriaSel" id="cat_administrador" value="administrador" />
+                   <label for="cat_administrador">Administrador de Empresas</label>
+                   <input type="radio" class="piedras" name="categoriaSel" id="cat_carpinteria" value="carpinteria" />
+                   <label for="cat_carpinteria">Carpíntero</label>
+                   <input type="radio" class="piedras" name="categoriaSel" id="cat_diseño" value="diseño" />
+                   <label for="cat_diseño">Diseñador Gráfico</label>
+                   <input type="radio" class="piedras" name="categoriaSel" id="cat_ingeniero" value="ingeniero" />
+                   <label for="cat_ingeniero">Ingeniero en Sistemas</label>
+                   <input type="radio" class="piedras" name="categoriaSel" id="cat_plomeria" value="plomeria" />
+                   <label for="cat_plomeria">Plomería</label>
+                   <input type="radio"  class="piedras" name="categoriaSel" id="cat_reparacion" value="reparacion" />
+                   <label for="cat_reparacion">Reparación de Celulares y Computadoras</label>
+                 </fieldset>
+               </div>
+    </div>
+
+    <div data-role="fieldcontain" align="center">
+      <textarea cols="40" rows="8" name="textarea" id="act_nota" placeholder="Nota"></textarea>
+    </div> 
+
+      <button id="btn_actualizar">Actualizar</button>
+      <button id="btn_eliminar">Eliminar</button>
+      <button id="btn_cancelar2">Cancelar</button>
+    
+  </div>
+  <div data-role="footer" data-position="fixed">
+  <div data-role="navbar">
+    <ul>
+      <li><a href="#" data-rol="button" data-icon="arrow-l" data-rel="back">Atras</a></li>
+      <li><a href="index.html" data-rol="button" data-icon="home">Inicio</a></li>
+    <li><a href="#info" data-rol="button" data-icon="info" data-rel="dialog">Info</a></li>
+    <li><a href="#Contactos" data-rol="button" data-icon="arrow-r">Siguiente</a></li>
     </ul>
   </div>
  </div>
