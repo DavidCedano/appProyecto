@@ -249,7 +249,7 @@ function initForm(){
 	$("#alta_domicilio").val("");
 	$("#alta_nota").val("");
 		
-	$("#cat_carpinteria").trigger("click").trigger("click");
+	$("#cat_administrador").trigger("click").trigger("click");
 	$("#alta_nota").val("");
 }
 

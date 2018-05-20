@@ -177,7 +177,7 @@
       <input type="text" name="domicilio" id="alta_domicilio" value=""  placeholder="Domicilio"/>
     </div>
 
-    <div id="lista_categoria">
+    <!--<div id="lista_categoria">
       <div data-role="fieldcontain" align="center">
         <select name="selectmenu" id="opciones">
           <option value="" disabled selected>Categoria</option>
@@ -189,11 +189,12 @@
           <option value="reparacion" id="cat_reparacion">Reparación de Celulares y Computadoras</option>
         </select>
       </div>
-    </div>
+    </div>-->
 
     <div id="lista_categoria_2">
                <div data-role="fieldcontain" class="nuevo">
-                 <fieldset data-role="controlgroup" data-type="horizontal">
+                 <fieldset data-role="controlgroup" data-type="vertical">
+                  <label class="titulo2">Categoria:</label><br/><br/>
                    <input type="radio" class="piedras" name="categoriaSel" id="cat_administrador" value="administrador" />
                    <label for="cat_administrador">Administrador de Empresas</label>
                    <input type="radio" class="piedras" name="categoriaSel" id="cat_carpinteria" value="carpinteria" />
