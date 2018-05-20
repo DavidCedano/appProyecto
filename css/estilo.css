@@ -31,6 +31,18 @@
 	margin-right:10px;
 }
 
+#foto, #fotoEdit{
+	text-align:center;
+}
+
+#foto img{
+	max-height:150px;
+}
+
+#fotoEdit img{
+	max-height:50px;
+}
+
 /*.nuevo{
 	width:1000px;
 height:10px;
