@@ -61,8 +61,8 @@ function onDeviceReady(){
 	 });
 
 	$("#btn_eliminar").click(function(e){
-		/*alert('voy al metodo saveDeleteForm');
-		saveDeleteForm();*/
+		alert('voy al metodo saveDeleteForm');
+		saveDeleteForm();
 	 });
 }
 
@@ -281,6 +281,20 @@ function initForm2(){
 	$("#act_nota").val("");
 }
 
+
+
+/*
+* eliminando registros
+*/
+function saveDeleteForm(){
+	if(db != null){
+		db.transaction(queryDBDeleteForm, errorDB);
+	}
+}
+
+function queryDBDeleteForm(tx){
+	tx.executeSql('DELETE FROM servicios WHERE id='+$.id);
+}
 
 /*
 * modificando registros
