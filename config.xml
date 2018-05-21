@@ -10,11 +10,16 @@
     <content src="index.html" />
     <access origin="*" />
 
+    <allow-navigation href="http://*/*" />
+    <allow-navigation href="https://*/*" />
+    <allow-navigation href="data:*" />
+
     <icon src="img/servicios1.jpg" gap:density="ldpi" gap:platform="android" />
 	<icon src="img/servicios2.jpg" gap:density="mdpi" gap:platform="android" />
 	<icon src="img/servicios3.jpg" gap:density="hdpi" gap:platform="android" />
 	<icon src="img/servicios4.jpg" gap:density="xhdpi" gap:platform="android" />
 
     <plugin name="cordova-plugin-dialogs" spec="~2.0.1" />
+    <plugin name="cordova-plugin-whitelist" spec="~1.3.3" />
 
 </widget>
