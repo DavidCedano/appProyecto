@@ -43,6 +43,11 @@
 	max-height:50px;
 }
 
+.botones{
+	width:114px; 
+	height: 22px;
+}
+
 /*.nuevo{
 	width:1000px;
 height:10px;
