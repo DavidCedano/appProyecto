@@ -103,11 +103,23 @@ function onDeviceReady(){
 		    
 		}
 	 });
+
+	$("#img_1").click(function(e){
+		window.open('https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=72HS92PWABTAS', '_system');
+	 });
+
+	$("#img_2").click(function(e){
+		window.open('https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3TLZ38P5FAZF4', '_system');
+	 });
+
+	$("#img_3").click(function(e){
+		window.open('https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=59U5VRBRZLFF6', '_system');
+	 });
 }
 
 
 /* 
-* creación de ña base de datos
+* creación de la base de datos
 */
 function creaDB(){
 	db.transaction(creaNuevaDB, errorDB, creaSuccess);
