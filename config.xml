@@ -16,6 +16,7 @@
 
     <allow-intent href="http://*/*" launch-external="yes"/>
     <allow-intent href="https://*/*" launch-external="yes"/>
+    <allow-intent href="data:*" launch-external="yes"/>
 
     <icon src="img/servicios1.jpg" gap:density="ldpi" gap:platform="android" />
 	<icon src="img/servicios2.jpg" gap:density="mdpi" gap:platform="android" />
