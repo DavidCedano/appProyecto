@@ -118,14 +118,14 @@ function onDeviceReady(){
 
 	// Take photo from camera
             $('#but_take').click(function(){
-                navigator.camera.getPicture(onSuccess, onFail, { quality: 20,
+                navigator.camera.getPicture(onSuccess(), onFail, { quality: 20,
                     destinationType: Camera.DestinationType.FILE_URL 
                 });
             });
 
             // Select from gallery 
             $("#but_select").click(function(){
-                navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+                navigator.camera.getPicture(onSuccess(), onFail, { quality: 50,
                     sourceType: Camera.PictureSourceType.PHOTOLIBRARY, 
                     allowEdit: true,
                     destinationType: Camera.DestinationType.FILE_URI
@@ -134,7 +134,7 @@ function onDeviceReady(){
 
             // Change image source
             function onSuccess(imageData) {
-                var image = document.getElementById('img');
+                var image = document.getElementById('img5');
                 image.src = imageData + '?' + Math.random();;
             }
 
