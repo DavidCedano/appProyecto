@@ -32,6 +32,7 @@ function onBodyLoad() {
 
 function onDeviceReady(){
 	mkLog("Aplicación cargada y lista");
+	alert('verificando plugin de camara: ' + navigator.camera);
 	//alert('Aplicación cargada y lista');
     //navigator.notification.alert("PhoneGap is working");
 	
@@ -115,34 +116,7 @@ function onDeviceReady(){
 	$("#img_3").click(function(e){
 		window.open('https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=59U5VRBRZLFF6', '_system');
 	 });
-
-	// Take photo from camera
-            $('#but_take').click(function(){
-                navigator.camera.getPicture(onSuccess(), onFail, { quality: 20,
-                    destinationType: Camera.DestinationType.FILE_URL 
-                });
-            });
-
-            // Select from gallery 
-            $("#but_select").click(function(){
-                navigator.camera.getPicture(onSuccess(), onFail, { quality: 50,
-                    sourceType: Camera.PictureSourceType.PHOTOLIBRARY, 
-                    allowEdit: true,
-                    destinationType: Camera.DestinationType.FILE_URI
-                });
-            });
-
-            // Change image source
-            function onSuccess(imageData) {
-                var image = document.getElementById('img5');
-                image.src = imageData + '?' + Math.random();;
-            }
-
-            function onFail(message) {
-                alert('Failed because: ' + message);
-            }
 }
-
 
 /* 
 * creación de la base de datos
