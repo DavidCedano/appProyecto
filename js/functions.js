@@ -1,5 +1,3 @@
-// JavaScript Document
-
 /* 
 * sistema de logs 
 */
@@ -12,19 +10,17 @@ function mkLog(text){
 	//$("#log").append(txt  + "<br>");
 }
 
-
-
 /* 
 * variables de la aplicación
 */
+
 	var existe_db
 	var db
-	
-
 
 /* 
 * carga inicial de la app
 */
+
 function onBodyLoad() {    
 	document.addEventListener("deviceready", onDeviceReady(), false);
 	//alert('estoy en onBodyLoad');
@@ -32,9 +28,7 @@ function onBodyLoad() {
 
 function onDeviceReady(){
 	mkLog("Aplicación cargada y lista");
-	alert('verificando plugin de camara: ' + navigator.camera);
 	//alert('Aplicación cargada y lista');
-    //navigator.notification.alert("PhoneGap is working");
 	
 	existe_db = window.localStorage.getItem("existe_db");
 	db = window.openDatabase("servicios", "1.0", "DB del curso Phonegap", 200000);
@@ -121,6 +115,7 @@ function onDeviceReady(){
 /* 
 * creación de la base de datos
 */
+
 function creaDB(){
 	db.transaction(creaNuevaDB, errorDB, creaSuccess);
 	
@@ -156,13 +151,13 @@ function creaSuccess(){
 
 function errorDB(err){
 	mkLog("Error procesando SQL " + err.code);
-	//navigator.notification.alert("Error procesando SQL " + err.code);
 	//alert("Error procesando SQL " + err.code);
 }
 
 /* 
 * carga de datos desde la base de datos
 */
+
 function cargaDatos(){
 	db.transaction(cargaRegistros, errorDB);
 }
@@ -179,7 +174,6 @@ function cargaDatosSuccess(tx, results){
 	if(results.rows.length == 0){
 		mkLog("No se han recibido registros");
 		alert("No hay Registros en la Base de Datos");
-		//navigator.notification.alert("No hay contactos en la base de datos");
 	}
 	//alert("Voy a cargar registros");
 	for(var i=0; i<results.rows.length; i++){
@@ -221,7 +215,6 @@ function initForm(){
 	$("#alta_nota").val("");
 }
 
-
 /*
 * vista detalle
 */
@@ -231,8 +224,6 @@ $(document).on("pagebeforeshow", "#detalle", function(){
 		db.transaction(queryDBFindByID, errorDB);
 	}
 });
-
-
 
 function queryDBFindByID(tx) {
     tx.executeSql('SELECT * FROM servicios WHERE id='+$.id, [], queryDetalleSuccess, errorDB);
@@ -244,7 +235,6 @@ function queryDetalleSuccess(tx, results) {
 	//alert("Recibidos de la DB en vista detalle" + results.rows.length + " registros");
 	if(results.rows.length == 0){
 		mkLog("No se han recibido registros para la vista detalle");
-		//navigator.notification.alert("No hay detalles para ese elemento");
 		alert("No hay detalles para ese elemento");
 	}
 	//alert("voy a cargar los detalles");
@@ -267,6 +257,7 @@ function queryDetalleSuccess(tx, results) {
 * vista detalle
 */
 //vista de la página de edición
+
 $(document).on('pagebeforeshow', '#ActualizarEliminarServicio', function(){ 
 	mkLog('ID recuperado en vista ActualizarEliminarServicio: ' + $.id);
 	//alert('ID recuperado en vista ActualizarEliminarServicio: ' + $.id);
@@ -287,7 +278,6 @@ function queryFormSuccess(tx, results) {
 	//alert("Recibidos de la DB en vista Form" + results.rows.length + " registros");
 	if(results.rows.length == 0){
 		mkLog("No se han recibido registros para la vista form");
-		//navigator.notification.alert("No hay detalles para ese elemento");
 		alert("No hay detalles para ese elemento");
 	}
 	//alert("voy a cargar los datos para editar");
@@ -326,12 +316,14 @@ function initForm2(){
 }
 
 //cancelar de AgregarServicio
+
 function cancelProcess1(){
 	initForm();
 	$.mobile.changePage("#inicio");
 }
 
 //cancelar de ActualizarEliminarServicio
+
 function cancelProcess2(){
 	initForm2();
 	$.mobile.changePage("#inicio");
@@ -340,6 +332,7 @@ function cancelProcess2(){
 /*
 * eliminando registros
 */
+
 function saveDeleteForm(){
 	if(db != null){
 		db.transaction(queryDBDeleteForm, errorDB);
@@ -356,6 +349,7 @@ function queryDBDeleteForm(tx){
 /*
 * modificando registros
 */
+
 function saveEditForm(){
 	if(db != null){
 		db.transaction(queryDBUpdateForm, errorDB, updateFormSuccess);
@@ -387,6 +381,7 @@ function updateFormSuccess(tx) {
 /*
 * creando registros
 */
+
 function saveNewForm(){
 	if(db != null){
 		db.transaction(queryDBInsertForm, errorDB);
