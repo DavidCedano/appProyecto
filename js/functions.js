@@ -29,7 +29,6 @@ function onBodyLoad() {
 function onDeviceReady(){
 	mkLog("Aplicación cargada y lista");
 	//alert('Aplicación cargada y lista');
-	//$("body").nodoubletapzoom();
 	
 	existe_db = window.localStorage.getItem("existe_db");
 	db = window.openDatabase("servicios", "1.0", "DB del curso Phonegap", 200000);
@@ -118,6 +117,8 @@ function onDeviceReady(){
 	 });
 }
 
+//validar email
+
 function validateEmail($email) {
   var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
   return emailReg.test( $email );
@@ -162,9 +163,6 @@ function creaSuccess(){
 
 function errorDB(err){
 	mkLog("Error procesando SQL " + err.code);
-	/*if(err.code == '1092'){
-		alert('soy ese error');
-	}*/
 	//alert("Error procesando SQL " + err.code);
 }
 

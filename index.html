@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, height=device-height">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Catálogo de Servicios</title>
 
 <link href="css/estilo.css" rel="stylesheet" type="text/css">
@@ -21,7 +21,7 @@
 <body onload="onBodyLoad()">
 
 <div data-role="page" id="inicio">
-  <div data-role="header">
+  <div data-role="header" data-position="fixed" data-tap-toggle="false">
 	  <!-- BOTON DE AGREGAR SERVICIOS-->
 	  <div class="ui-btn-left">
         <a href="#AgregarServicio" data-role="button" data-inline="true" data-icon="plus" data-iconpos="notext">Nuevo Servicio</a>
@@ -33,8 +33,8 @@
         <a href="#AcercaDeMi" data-role="button" data-inline="true" data-icon="info" data-iconpos="notext">Acerca de Mi</a>
       </div>
   </div>
-  <div data-role="content">
-	  <div align="center"><img src="img/servicios.png" width="150" height="150" alt=""></div>
+  <div data-role="content" data-position-fixed="true">
+	  <div align="center"><img src="img/servicios.png" width="150" height="150" alt="imagenes"></div>
 	  <!-- CATEGORIAS COLAPSABLES-->
 
     <div data-role="collapsible-set">
@@ -79,7 +79,7 @@
 	   
   </div>
 	<!-- PIE DE PAGINA-->
-  <div data-role="footer" data-position="fixed">
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false">
     <div data-role="navbar">
     <ul>
       <li><a href="#" data-rol="button" data-icon="arrow-l">Atras</a></li>
@@ -105,10 +105,11 @@
 <!-- Pagina Acerca de Mi-->
   
 <div data-role="page" id="AcercaDeMi">
-  <div data-role="header">
+  <div data-role="header" data-position="fixed" data-tap-toggle="false">
     <h1>Acerca De Mi</h1>
   </div>
-  <div data-role="content" align="center">
+  <div data-role="content">
+    <div align="center">
       <div align="center"><img src="img/Retrato3.jpg" width="120" height="160" alt="" class="alin"></div><br/>
       <label class="titulo">Nombre:</label><br/><br/><label>David Cedano Hernández</label><br/><br/>
       <label class="titulo">Carrera:</label><br/><br/><label>Licenciatura en Ingeniería en Sistemas de Información</label><br/><br/>
@@ -126,10 +127,11 @@
       <br/><label>Otra Cantidad</label><br/><br/>
 
       <img src="assets/donar.png" class="botones" id="img_3"><br/>
+    </div>
 
   </div>
 
-  <div data-role="footer" data-position="fixed">
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false">
   <div data-role="navbar">
     <ul>
       <li><a href="#" data-rol="button" data-icon="arrow-l" data-rel="back">Atras</a></li>
@@ -144,7 +146,7 @@
 
 <!-- esta página es la de detalle-->
     <div data-role="page" id="detalle">
-      <div data-role="header">
+      <div data-role="header" data-position="fixed" data-tap-toggle="false">
         <h1>Información del Servicio</h1>
       </div>
       <div data-role="content">
@@ -172,7 +174,7 @@
 
       </div>
 
-      <div data-role="footer" data-position="fixed">
+      <div data-role="footer" data-position="fixed" data-tap-toggle="false">
         <div data-role="navbar">
           <ul>
             <li><a href="#" data-rol="button" data-icon="arrow-l" data-rel="back">Atras</a></li>
@@ -187,7 +189,7 @@
 <!-- Pagina de Registrate-->
 	
 <div data-role="page" id="AgregarServicio">
-  <div data-role="header">
+  <div data-role="header" data-position="fixed" data-tap-toggle="false">
     <h1>Alta de Servicios</h1>
   </div>
   <div data-role="content">
@@ -239,7 +241,7 @@
       <button id="btn_guardar">Guardar</button>
       <button id="btn_cancelar1">Cancelar</button>
 	  
-  <div data-role="footer" data-position="fixed">
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false">
   <div data-role="navbar">
     <ul>
       <li><a href="#" data-rol="button" data-icon="arrow-l" data-rel="back">Atras</a></li>
@@ -255,7 +257,7 @@
 <!-- Pagina de Actualizacion-->
 
 <div data-role="page" id="ActualizarEliminarServicio">
-  <div data-role="header">
+  <div data-role="header" data-position="fixed" data-tap-toggle="false">
     <h1>Actualización / Eliminación de Servicios</h1>
   </div>
   <div data-role="content">
@@ -309,7 +311,7 @@
       <button id="btn_cancelar2">Cancelar</button>
     
   </div>
-  <div data-role="footer" data-position="fixed">
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false">
   <div data-role="navbar">
     <ul>
       <li><a href="#" data-rol="button" data-icon="arrow-l" data-rel="back">Atras</a></li>
