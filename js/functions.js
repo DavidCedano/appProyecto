@@ -29,6 +29,7 @@ function onBodyLoad() {
 function onDeviceReady(){
 	mkLog("Aplicación cargada y lista");
 	//alert('Aplicación cargada y lista');
+	//$("body").nodoubletapzoom();
 	
 	existe_db = window.localStorage.getItem("existe_db");
 	db = window.openDatabase("servicios", "1.0", "DB del curso Phonegap", 200000);
