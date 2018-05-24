@@ -40,7 +40,7 @@ function onDeviceReady(){
 		cargaDatos();
 	}
 
-	jQuery('.validar').keypress(function(tecla) {
+	$('.validar').keypress(function(tecla) {
 	if((tecla.charCode < 97 || tecla.charCode > 122) && (tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode != 45)) return false;
 	});
 	
