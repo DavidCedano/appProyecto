@@ -202,7 +202,7 @@ function creaNuevaDB(tx){
 		
 	tx.executeSql(sql);
 	
-	tx.executeSql("INSERT INTO servicios (id,nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES (1,'Carpintero','assets/carpintero_img.png','6699900970','ejemplo@mail.com','granadas 258','carpinteria','soy el mejor yeah!')");
+	tx.executeSql("INSERT INTO servicios (id,nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES (1,'Carpintero','assets/carpintero_img.png','6692534612','carpintero@mail.com','granadas #258 Las Brisas','carpinteria','¡Siempre con la mejor Calidad!')");
 
 	//alert('inserte el predeterminado');
 }
