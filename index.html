@@ -195,11 +195,14 @@
   <div data-role="content">
     
      <div data-role="fieldcontain" align="center">
-      <div id="fotoEdit"><a href="#"><img id="alta_imagen" src="assets/no_foto.png"/></a></div>
+      
+      <div id="fotoEdit"><a href="#"><img id="alta_imagen" src="assets/no_foto.png"/></a></div><br/><br/>
+      <input type="file" id="archImagen" placeholder="Imagen">
+
     </div>
 
     <div data-role="fieldcontain" align="center">
-      <input type="text" name="nombre" id="alta_nombre" value="" placeholder="Nombre del Servicio" onkeypress="return textoLibre2(event)" />
+      <input type="text" name="nombre" id="alta_nombre" class="validar" value="" placeholder="Nombre del Servicio" />
     </div>
 
     <div data-role="fieldcontain" align="center">
