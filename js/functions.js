@@ -43,10 +43,13 @@ function onDeviceReady(){
 	
 	$("#btn_guardar").click(function(e){
 		if($.id == -1){
+		 	
 		 	//alert('voy al metodo saveNewForm');
 		 	if($("#alta_nombre").val() == "" || $("#alta_telefono").val() == "" || $("#alta_email").val() == "" || $("#alta_domicilio").val() == "" || $("#alta_nota").val() == ""){
 		 		alert('Hay campos vacíos. Agregue información.');
-		 	}else{
+		 	}else if(!validateEmail($("#alta_email").val())){
+				alert('Formato de Email Incorrecto.');
+			}else{
 				saveNewForm();
 			}
 		 }
@@ -57,6 +60,8 @@ function onDeviceReady(){
 			//alert('voy al metodo saveEditForm');
 			if($("#act_nombre").val() == "" || $("#act_telefono").val() == "" || $("#act_email").val() == "" || $("#act_domicilio").val() == "" || $("#act_nota").val() == ""){
 		 		alert('Hay campos vacíos. Agregue información.');
+		 	}else if(!validateEmail($("#act_email").val())){
+		 		alert('Formato de Email Incorrecto.');
 		 	}else{
 		 		var opcion = confirm("¿Desea Actualizar?");
 	    		if (opcion == true) {
@@ -112,6 +117,11 @@ function onDeviceReady(){
 	 });
 }
 
+function validateEmail($email) {
+  var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+  return emailReg.test( $email );
+}
+
 /* 
 * creación de la base de datos
 */
@@ -151,6 +161,9 @@ function creaSuccess(){
 
 function errorDB(err){
 	mkLog("Error procesando SQL " + err.code);
+	/*if(err.code == '1092'){
+		alert('soy ese error');
+	}*/
 	//alert("Error procesando SQL " + err.code);
 }
 
