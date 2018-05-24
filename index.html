@@ -154,7 +154,7 @@
           <!-- categoria -->
           <label class="titulo">Categoria:</label><br/><br/><label id="categoria"></label><br/><br/>
           <!-- imagen -->
-            <div id="foto"><img id="foto_img" src="assets/no_foto.png"/></div>
+            <div id="foto"><img id="foto_img" src=""/></div>
         </div>
 
       <div class="caja_blanca">
@@ -195,14 +195,11 @@
   <div data-role="content">
     
      <div data-role="fieldcontain" align="center">
-      
-      <div id="fotoEdit"><a href="#"><img id="alta_imagen" src="assets/no_foto.png"/></a></div><br/><br/>
-      <input type="file" id="archImagen" placeholder="Imagen">
-
+      <div id="fotoEdit"><a href="#"><img id="alta_imagen" src=""/></a></div>
     </div>
 
     <div data-role="fieldcontain" align="center">
-      <input type="text" name="nombre" id="alta_nombre" class="validar" value="" placeholder="Nombre del Servicio" />
+      <input type="text" name="nombre" id="alta_nombre" value="" placeholder="Nombre del Servicio" onkeypress="return textoLibre2(event)"/>
     </div>
 
     <div data-role="fieldcontain" align="center">
@@ -266,7 +263,7 @@
   <div data-role="content">
     
     <div data-role="fieldcontain" align="center">
-      <div id="fotoEdit"><a href="#"><img id="act_imagen" src="assets/no_foto.png"/></a></div>
+      <div id="fotoEdit"><a href="#"><img id="act_imagen" src=""/></a></div>
     </div>
 
     <div data-role="fieldcontain" align="center">

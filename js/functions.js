@@ -40,11 +40,6 @@ function onDeviceReady(){
 		cargaDatos();
 	}
 
-	$('.validar').keypress(function(tecla) {
-	if((tecla.charCode < 97 || tecla.charCode > 122) && (tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode != 45)) return false;
-	});
-	
-	
 	$("#btn_guardar").click(function(e){
 		if($.id == -1){
 		 	
@@ -119,6 +114,58 @@ function onDeviceReady(){
 	$("#img_3").click(function(e){
 		window.open('https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=59U5VRBRZLFF6', '_system');
 	 });
+
+	//------------alta--------
+
+	$("#cat_administrador").click(function(e){
+		$("#alta_imagen").attr('src','assets/administrador_img.png');
+	 });
+
+	$("#cat_carpinteria").click(function(e){
+		$("#alta_imagen").attr('src','assets/carpintero_img.png');
+	 });
+
+	$("#cat_diseño").click(function(e){
+		$("#alta_imagen").attr('src','assets/disenador_img.png');
+	 });
+
+	$("#cat_ingeniero").click(function(e){
+		$("#alta_imagen").attr('src','assets/ingeniero_img.png');
+	 });
+
+	$("#cat_plomeria").click(function(e){
+		$("#alta_imagen").attr('src','assets/plomero_img.png');
+	 });
+
+	$("#cat_reparacion").click(function(e){
+		$("#alta_imagen").attr('src','assets/reparacion_img.png');
+	 });
+
+	//--------------actualizacion-----------
+
+	$("#cat2_administrador").click(function(e){
+		$("#act_imagen").attr('src','assets/administrador_img.png');
+	 });
+
+	$("#cat2_carpinteria").click(function(e){
+		$("#act_imagen").attr('src','assets/carpintero_img.png');
+	 });
+
+	$("#cat2_diseño").click(function(e){
+		$("#act_imagen").attr('src','assets/disenador_img.png');
+	 });
+
+	$("#cat2_ingeniero").click(function(e){
+		$("#act_imagen").attr('src','assets/ingeniero_img.png');
+	 });
+
+	$("#cat2_plomeria").click(function(e){
+		$("#act_imagen").attr('src','assets/plomero_img.png');
+	 });
+
+	$("#cat2_reparacion").click(function(e){
+		$("#act_imagen").attr('src','assets/reparacion_img.png');
+	 });
 }
 
 //validar email
@@ -155,7 +202,7 @@ function creaNuevaDB(tx){
 		
 	tx.executeSql(sql);
 	
-	tx.executeSql("INSERT INTO servicios (id,nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES (1,'Ejemplo1','','6699900970','ejemplo@mail.com','granadas 258','carpinteria','soy el mejor yeah!')");
+	tx.executeSql("INSERT INTO servicios (id,nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES (1,'Carpintero','assets/carpintero_img.png','6699900970','ejemplo@mail.com','granadas 258','carpinteria','soy el mejor yeah!')");
 
 	//alert('inserte el predeterminado');
 }
@@ -196,9 +243,7 @@ function cargaDatosSuccess(tx, results){
 		var persona = results.rows.item(i);
 		var selector = $("#lista_" + persona.categoria + " ul");
 		var foto = persona.imagen;
-		if(foto == ""){
-			foto = "assets/no_foto.png";
-		}
+		
 		selector.append('<li id="li_'+persona.id+'"><a href="#detalle" data-uid='+persona.id+' class="linkDetalles"><div class="interior_lista"><img src="'+ foto +'" class="img_peq"/><span>' + persona.nombre + '</span></div></a><a href="#ActualizarEliminarServicio"  data-theme="a" data-uid='+persona.id+'  class="linkForm">Predet.</a></li>').listview('refresh');
 	}
 	
@@ -218,7 +263,7 @@ $(document).on("pagebeforeshow", "#AgregarServicio", function(){
 });
 
 function initForm(){
-	$.imageURL = "assets/no_foto.png";
+	$.imageURL = 'assets/administrador_img.png';
 	
 	$("#alta_imagen").attr("src", $.imageURL);
 	$("#alta_nombre").val("");
@@ -257,9 +302,6 @@ function queryDetalleSuccess(tx, results) {
 	$.registro = results.rows.item(0);
 	$("#categoria").html($.registro.categoria);
 		var _foto = $.registro.imagen;
-		if(_foto == ""){
-			_foto = "assets/no_foto.png";
-		}
 		$("#foto_img").attr("src", _foto);
 		$("#nombre").html($.registro.nombre);
 		$("#telefono").html($.registro.telefono);
@@ -300,9 +342,6 @@ function queryFormSuccess(tx, results) {
 	$.registro = results.rows.item(0);
 	
 		$.imageURL = $.registro.imagen;
-		if($.imageURL == ""){
-			$.imageURL = "assets/no_foto.png";
-		}
 		$("#act_imagen").attr("src", $.imageURL);
 		$("#act_nombre").val($.registro.nombre);
 		$("#act_telefono").val($.registro.telefono);
@@ -318,7 +357,7 @@ $(document).on('pagebeforeshow', '#inicio', function(){
 });
 
 function initForm2(){
-	$.imageURL = "assets/no_foto.png";
+	$.imageURL = "assets/administrador_img.png";
 	
 	$("#act_imagen").attr("src", $.imageURL);
 	$("#act_nombre").val("");
@@ -374,13 +413,13 @@ function saveEditForm(){
 
 function queryDBUpdateForm(tx){
 	var cat = $("#lista_categoria2").find("input:checked").val();
-	tx.executeSql('UPDATE servicios SET nombre="'+$("#act_nombre").val()+'",imagen = "'+$.imageURL+'",telefono="'+$("#act_telefono").val()+'",email="'+$("#act_email").val()+'",domicilio="'+$("#act_domicilio").val()+'",categoria="'+cat+'",nota="'+$("#act_nota").val()+'" WHERE id='+$.id);
+	tx.executeSql('UPDATE servicios SET nombre="'+$("#act_nombre").val()+'",imagen = "'+$("#act_imagen").val()+'",telefono="'+$("#act_telefono").val()+'",email="'+$("#act_email").val()+'",domicilio="'+$("#act_domicilio").val()+'",categoria="'+cat+'",nota="'+$("#act_nota").val()+'" WHERE id='+$.id);
 }
 function updateFormSuccess(tx) {
 	var selector = $("#li_"+$.id);
 	
 	var selector = $("#li_"+$.id).clone(true);
-	selector.find("img").attr("src", $.imageURL);
+	selector.find("img").attr("src", $("#act_imagen").val());
 	selector.find("a:first").find("span").html($("#act_nombre").val());
 	
 	
@@ -407,14 +446,14 @@ function saveNewForm(){
 function queryDBInsertForm(tx){
 	var cat = $("#lista_categoria").find("input:checked").val();
 	
-	tx.executeSql("INSERT INTO servicios (nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES ('"+$("#alta_nombre").val()+"','"+$.imageURL+"','"+$("#alta_telefono").val()+"','"+$("#alta_email").val()+"','"+$("#alta_domicilio").val()+"','"+cat+"','"+$("#alta_nota").val()+"')", [], newFormSuccess, errorDB);
+	tx.executeSql("INSERT INTO servicios (nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES ('"+$("#alta_nombre").val()+"','"+$("#alta_imagen").val()+"','"+$("#alta_telefono").val()+"','"+$("#alta_email").val()+"','"+$("#alta_domicilio").val()+"','"+cat+"','"+$("#alta_nota").val()+"')", [], newFormSuccess, errorDB);
 }
 function newFormSuccess(tx, results) {
 	var cat = $("#lista_categoria").find("input:checked").val();
 	var lista = $("#lista_" + cat + " ul")
 	
 	
-	var obj = $('<li id="li_'+results.insertId+'"><a href="#detalle" data-uid='+results.insertId+' class="linkDetalles"><div class="interior_lista"><img src="'+ $.imageURL +'" class="img_peq"/><span>' + $("#alta_nombre").val() + '</span></div></a><a href="#ActualizarEliminarServicio"  data-theme="a" data-uid='+results.insertId+'  class="linkForm">Predet.</a></li>');
+	var obj = $('<li id="li_'+results.insertId+'"><a href="#detalle" data-uid='+results.insertId+' class="linkDetalles"><div class="interior_lista"><img src="'+ $("#alta_imagen").val() +'" class="img_peq"/><span>' + $("#alta_nombre").val() + '</span></div></a><a href="#ActualizarEliminarServicio"  data-theme="a" data-uid='+results.insertId+'  class="linkForm">Predet.</a></li>');
 	obj.find('.linkDetalles').bind('click', function(e){
 		$.id = $(this).data('uid');
 	});
