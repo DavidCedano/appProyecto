@@ -413,13 +413,15 @@ function saveEditForm(){
 
 function queryDBUpdateForm(tx){
 	var cat = $("#lista_categoria2").find("input:checked").val();
-	tx.executeSql('UPDATE servicios SET nombre="'+$("#act_nombre").val()+'",imagen = "'+$("#act_imagen").val()+'",telefono="'+$("#act_telefono").val()+'",email="'+$("#act_email").val()+'",domicilio="'+$("#act_domicilio").val()+'",categoria="'+cat+'",nota="'+$("#act_nota").val()+'" WHERE id='+$.id);
+	var src_Imagen = $("#act_imagen").attr('src');
+	tx.executeSql('UPDATE servicios SET nombre="'+$("#act_nombre").val()+'",imagen = "'+src_Imagen+'",telefono="'+$("#act_telefono").val()+'",email="'+$("#act_email").val()+'",domicilio="'+$("#act_domicilio").val()+'",categoria="'+cat+'",nota="'+$("#act_nota").val()+'" WHERE id='+$.id);
 }
 function updateFormSuccess(tx) {
 	var selector = $("#li_"+$.id);
+	var src_Imagen = $("#act_imagen").attr('src');
 	
 	var selector = $("#li_"+$.id).clone(true);
-	selector.find("img").attr("src", $("#act_imagen").val());
+	selector.find("img").attr("src", src_Imagen);
 	selector.find("a:first").find("span").html($("#act_nombre").val());
 	
 	
@@ -445,15 +447,17 @@ function saveNewForm(){
 
 function queryDBInsertForm(tx){
 	var cat = $("#lista_categoria").find("input:checked").val();
+	var src_Imagen = $("#alta_imagen").attr('src');
 	
-	tx.executeSql("INSERT INTO servicios (nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES ('"+$("#alta_nombre").val()+"','"+$("#alta_imagen").val()+"','"+$("#alta_telefono").val()+"','"+$("#alta_email").val()+"','"+$("#alta_domicilio").val()+"','"+cat+"','"+$("#alta_nota").val()+"')", [], newFormSuccess, errorDB);
+	tx.executeSql("INSERT INTO servicios (nombre,imagen,telefono,email,domicilio,categoria,nota) VALUES ('"+$("#alta_nombre").val()+"','"+src_Imagen+"','"+$("#alta_telefono").val()+"','"+$("#alta_email").val()+"','"+$("#alta_domicilio").val()+"','"+cat+"','"+$("#alta_nota").val()+"')", [], newFormSuccess, errorDB);
 }
 function newFormSuccess(tx, results) {
 	var cat = $("#lista_categoria").find("input:checked").val();
+	var src_Imagen = $("#alta_imagen").attr('src');
 	var lista = $("#lista_" + cat + " ul")
 	
 	
-	var obj = $('<li id="li_'+results.insertId+'"><a href="#detalle" data-uid='+results.insertId+' class="linkDetalles"><div class="interior_lista"><img src="'+ results.imagen +'" class="img_peq"/><span>' + $("#alta_nombre").val() + '</span></div></a><a href="#ActualizarEliminarServicio"  data-theme="a" data-uid='+results.insertId+'  class="linkForm">Predet.</a></li>');
+	var obj = $('<li id="li_'+results.insertId+'"><a href="#detalle" data-uid='+results.insertId+' class="linkDetalles"><div class="interior_lista"><img src="'+src_Imagen+'" class="img_peq"/><span>' + $("#alta_nombre").val() + '</span></div></a><a href="#ActualizarEliminarServicio"  data-theme="a" data-uid='+results.insertId+'  class="linkForm">Predet.</a></li>');
 	obj.find('.linkDetalles').bind('click', function(e){
 		$.id = $(this).data('uid');
 	});
