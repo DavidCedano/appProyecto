@@ -453,7 +453,7 @@ function newFormSuccess(tx, results) {
 	var lista = $("#lista_" + cat + " ul")
 	
 	
-	var obj = $('<li id="li_'+results.insertId+'"><a href="#detalle" data-uid='+results.insertId+' class="linkDetalles"><div class="interior_lista"><img src="'+ $("#alta_imagen").val() +'" class="img_peq"/><span>' + $("#alta_nombre").val() + '</span></div></a><a href="#ActualizarEliminarServicio"  data-theme="a" data-uid='+results.insertId+'  class="linkForm">Predet.</a></li>');
+	var obj = $('<li id="li_'+results.insertId+'"><a href="#detalle" data-uid='+results.insertId+' class="linkDetalles"><div class="interior_lista"><img src="'+ results.imagen +'" class="img_peq"/><span>' + $("#alta_nombre").val() + '</span></div></a><a href="#ActualizarEliminarServicio"  data-theme="a" data-uid='+results.insertId+'  class="linkForm">Predet.</a></li>');
 	obj.find('.linkDetalles').bind('click', function(e){
 		$.id = $(this).data('uid');
 	});
